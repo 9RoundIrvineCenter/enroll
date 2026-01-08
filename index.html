@@ -120,10 +120,24 @@
   <div id="renewalModal" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title">Renew Membership</h3>
+        <h3 class="modal-title">MEMBERSHIP RENEWAL</h3>
         <button class="modal-close" aria-label="Close modal">&times;</button>
       </div>
       <div class="modal-body">
+        <div class="modal-iframe-overlay">
+          <div class="modal-overlay-content">
+            <img src="images/favicon.svg" alt="9Round Logo" class="modal-overlay-logo">
+            <div class="modal-overlay-info">
+              <div class="modal-overlay-name">9Round Irvine Center</div>
+              <div class="modal-overlay-address">6610 Irvine Center Dr, Irvine, CA 92618</div>
+              <div class="modal-overlay-phone">949-431-6679</div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-loader" id="modalLoader">
+          <div class="loader-spinner"></div>
+          <p class="loader-text">Loading...</p>
+        </div>
         <iframe id="renewalIframe" src="" frameborder="0"></iframe>
       </div>
     </div>
@@ -207,18 +221,39 @@
     const modal = document.getElementById('renewalModal');
     const modalIframe = document.getElementById('renewalIframe');
     const modalClose = document.querySelector('.modal-close');
+    const modalLoader = document.getElementById('modalLoader');
+    let loaderTimeout;
 
     function showModal(url) {
       modalIframe.src = url;
       modal.style.display = 'flex';
       document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      
+      // Show loader after 500ms if still loading
+      loaderTimeout = setTimeout(() => {
+        if (modalIframe.src && !modalIframe.complete) {
+          modalLoader.style.display = 'flex';
+        }
+      }, 500);
     }
 
     function closeModal() {
       modal.style.display = 'none';
       modalIframe.src = ''; // Clear iframe to stop loading
       document.body.style.overflow = ''; // Restore scrolling
+      modalLoader.style.display = 'none'; // Hide loader
+      if (loaderTimeout) {
+        clearTimeout(loaderTimeout);
+      }
     }
+
+    // Hide loader when iframe loads
+    modalIframe.addEventListener('load', function() {
+      modalLoader.style.display = 'none';
+      if (loaderTimeout) {
+        clearTimeout(loaderTimeout);
+      }
+    });
 
     // Close modal handlers
     modalClose.addEventListener('click', closeModal);
