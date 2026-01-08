@@ -464,7 +464,7 @@ body {
 }
 
 /* Premium Button Design */
-.renew-button {
+.enroll-button {
   display: block;
   width: 100%;
   background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
@@ -486,7 +486,7 @@ body {
   border: none;
 }
 
-.renew-button::before {
+.enroll-button::before {
   content: '';
   position: absolute;
   top: 0;
@@ -497,38 +497,38 @@ body {
   transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.renew-button:hover::before {
+.enroll-button:hover::before {
   left: 100%;
 }
 
-.renew-button:hover {
+.enroll-button:hover {
   background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
   transform: translateY(-3px);
   box-shadow: var(--shadow-lg);
 }
 
-.renew-button:active {
+.enroll-button:active {
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
 }
 
-.renew-button:focus {
+.enroll-button:focus {
   outline: 3px solid var(--accent-red);
   outline-offset: 3px;
 }
 
-[data-theme="dark"] .renew-button {
+[data-theme="dark"] .enroll-button {
   background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
   color: #000000;
   box-shadow: var(--shadow-md);
 }
 
-[data-theme="dark"] .renew-button:hover {
+[data-theme="dark"] .enroll-button:hover {
   background: linear-gradient(135deg, #f5f5f5 0%, #e5e5e5 100%);
   box-shadow: var(--shadow-lg);
 }
 
-[data-theme="dark"] .renew-button::before {
+[data-theme="dark"] .enroll-button::before {
   background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
 }
 
@@ -1002,7 +1002,7 @@ footer {
   font-weight: 500;
 }
 
-.savings-modal-renew {
+.savings-modal-enroll {
   margin-top: 32px;
   width: 100%;
 }
@@ -1153,7 +1153,7 @@ footer {
     margin-bottom: 12px;
   }
 
-  .renew-button {
+  .enroll-button {
     padding: 16px 24px;
     font-size: 13px;
     margin-top: 24px;
@@ -1304,7 +1304,7 @@ footer {
     margin-bottom: 24px;
   }
 
-  .savings-modal-renew {
+  .savings-modal-enroll {
     margin-top: 24px;
   }
 }

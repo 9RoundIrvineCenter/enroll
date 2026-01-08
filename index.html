@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>9Round Irvine Center - Renew Membership</title>
+  <title>9Round Irvine Center - Enroll Membership</title>
   <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
@@ -37,10 +37,10 @@
         <div class="pricing-option pif-option">
           <h3 class="option-title">6-Month Paid In Full</h3>
           <div class="price">$918</div>
-          <div class="highlight-badge" data-pif="918" data-monthly="228" data-tier="Unlimited" data-renew-url="https://www.clubready.com/JoinUs/9261/516774">2 MONTHS FREE</div>
+          <div class="highlight-badge" data-pif="918" data-monthly="228" data-tier="Unlimited" data-enroll-url="https://www.clubready.com/JoinUs/9261/516774">2 MONTHS FREE</div>
           <p class="price-note">6 consecutive months</p>
           <p class="option-note">No freeze option</p>
-          <a href="#" class="renew-button" data-url="https://www.clubready.com/JoinUs/9261/516774">RENEW</a>
+          <a href="#" class="enroll-button" data-url="https://www.clubready.com/JoinUs/9261/516774">ENROLL</a>
         </div>
 
         <div class="pricing-option monthly-option">
@@ -48,7 +48,7 @@
           <div class="price">$228<span class="price-period">/month</span></div>
           <p class="option-note">Cancel anytime with 30-day notice</p>
           <p class="option-note">Freeze option ($5 monthly)</p>
-          <a href="#" class="renew-button" data-url="https://app.clubready.com/JoinUs/9261/520974">RENEW</a>
+          <a href="#" class="enroll-button" data-url="https://app.clubready.com/JoinUs/9261/520974">ENROLL</a>
         </div>
       </div>
 
@@ -59,10 +59,10 @@
         <div class="pricing-option pif-option">
           <h3 class="option-title">6-Month Paid In Full</h3>
           <div class="price">$786</div>
-          <div class="highlight-badge" data-pif="786" data-monthly="188" data-tier="8 Sessions" data-renew-url="https://app.clubready.com/JoinUs/9261/558503">2 MONTHS FREE</div>
+          <div class="highlight-badge" data-pif="786" data-monthly="188" data-tier="8 Sessions" data-enroll-url="https://app.clubready.com/JoinUs/9261/558503">2 MONTHS FREE</div>
           <p class="price-note">6 consecutive months</p>
           <p class="option-note">No freeze option</p>
-          <a href="#" class="renew-button" data-url="https://app.clubready.com/JoinUs/9261/558503">RENEW</a>
+          <a href="#" class="enroll-button" data-url="https://app.clubready.com/JoinUs/9261/558503">ENROLL</a>
         </div>
 
         <div class="pricing-option monthly-option">
@@ -70,7 +70,7 @@
           <div class="price">$188<span class="price-period">/month</span></div>
           <p class="option-note">Cancel anytime with 30-day notice</p>
           <p class="option-note">Freeze option ($5 monthly)</p>
-          <a href="#" class="renew-button" data-url="https://app.clubready.com/JoinUs/9261/544039">RENEW</a>
+          <a href="#" class="enroll-button" data-url="https://app.clubready.com/JoinUs/9261/544039">ENROLL</a>
         </div>
       </div>
 
@@ -81,10 +81,10 @@
         <div class="pricing-option pif-option">
           <h3 class="option-title">6-Month Paid In Full</h3>
           <div class="price">$546</div>
-          <div class="highlight-badge" data-pif="546" data-monthly="138" data-tier="4 Sessions" data-renew-url="https://app.clubready.com/JoinUs/9261/558501">2 MONTHS FREE</div>
+          <div class="highlight-badge" data-pif="546" data-monthly="138" data-tier="4 Sessions" data-enroll-url="https://app.clubready.com/JoinUs/9261/558501">2 MONTHS FREE</div>
           <p class="price-note">6 consecutive months</p>
           <p class="option-note">No freeze option</p>
-          <a href="#" class="renew-button" data-url="https://app.clubready.com/JoinUs/9261/558501">RENEW</a>
+          <a href="#" class="enroll-button" data-url="https://app.clubready.com/JoinUs/9261/558501">ENROLL</a>
         </div>
 
         <div class="pricing-option monthly-option">
@@ -92,7 +92,7 @@
           <div class="price">$138<span class="price-period">/month</span></div>
           <p class="option-note">Cancel anytime with 30-day notice</p>
           <p class="option-note">Freeze option ($5 monthly)</p>
-          <a href="#" class="renew-button" data-url="https://app.clubready.com/JoinUs/9261/558485">RENEW</a>
+          <a href="#" class="enroll-button" data-url="https://app.clubready.com/JoinUs/9261/558485">ENROLL</a>
         </div>
       </div>
     </div>
@@ -117,11 +117,11 @@
     </div>
   </footer>
 
-  <!-- Renewal Modal -->
-  <div id="renewalModal" class="modal">
+  <!-- Enrollment Modal -->
+  <div id="enrollmentModal" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title">MEMBERSHIP RENEWAL</h3>
+        <h3 class="modal-title">MEMBERSHIP ENROLLMENT</h3>
         <button class="modal-close" aria-label="Close modal">&times;</button>
       </div>
       <div class="modal-body">
@@ -139,7 +139,7 @@
           <div class="loader-spinner"></div>
           <p class="loader-text">Loading...</p>
         </div>
-        <iframe id="renewalIframe" src="" frameborder="0"></iframe>
+        <iframe id="enrollmentIframe" src="" frameborder="0"></iframe>
       </div>
     </div>
   </div>
@@ -170,7 +170,7 @@
             <strong id="savings-amount">$0</strong>
           </div>
           <div class="savings-note">That's like getting 2 months FREE!</div>
-          <a href="#" class="renew-button savings-modal-renew" id="savings-renew-button">RENEW</a>
+          <a href="#" class="enroll-button savings-modal-enroll" id="savings-enroll-button">ENROLL</a>
         </div>
       </div>
     </div>
@@ -219,8 +219,8 @@
     })();
 
     // Modal functionality
-    const modal = document.getElementById('renewalModal');
-    const modalIframe = document.getElementById('renewalIframe');
+    const modal = document.getElementById('enrollmentModal');
+    const modalIframe = document.getElementById('enrollmentIframe');
     const modalClose = document.querySelector('.modal-close');
     const modalLoader = document.getElementById('modalLoader');
     let loaderTimeout;
@@ -283,7 +283,7 @@
         const pifPrice = parseFloat(badge.getAttribute('data-pif'));
         const monthlyPrice = parseFloat(badge.getAttribute('data-monthly'));
         const tierName = badge.getAttribute('data-tier');
-        const renewUrl = badge.getAttribute('data-renew-url');
+        const enrollUrl = badge.getAttribute('data-enroll-url');
         
         // Calculate values
         const sixMonthsMonthly = monthlyPrice * 6;
@@ -298,9 +298,9 @@
         document.getElementById('savings-pif-total').textContent = `$${pifPrice.toLocaleString()}`;
         document.getElementById('savings-amount').textContent = `$${savings.toLocaleString()}`;
         
-        // Update renew button
-        const renewButton = document.getElementById('savings-renew-button');
-        renewButton.setAttribute('data-url', renewUrl);
+        // Update enroll button
+        const enrollButton = document.getElementById('savings-enroll-button');
+        enrollButton.setAttribute('data-url', enrollUrl);
         
         // Show modal
         savingsModal.style.display = 'flex';
@@ -338,9 +338,9 @@
         }
       });
       
-      // Handle renew button click in savings modal
-      const savingsRenewButton = document.getElementById('savings-renew-button');
-      savingsRenewButton.addEventListener('click', function(e) {
+      // Handle enroll button click in savings modal
+      const savingsEnrollButton = document.getElementById('savings-enroll-button');
+      savingsEnrollButton.addEventListener('click', function(e) {
         e.preventDefault();
         const url = this.getAttribute('data-url');
         if (url && url !== '#') {
@@ -350,8 +350,8 @@
       });
     })();
 
-    // Add click handlers for RENEW buttons
-    document.querySelectorAll('.renew-button').forEach(button => {
+    // Add click handlers for ENROLL buttons
+    document.querySelectorAll('.enroll-button').forEach(button => {
       button.addEventListener('click', function(e) {
         e.preventDefault();
         const url = this.getAttribute('data-url');
@@ -359,7 +359,7 @@
           showModal(url);
         } else {
           console.log('Placeholder URL for:', this.getAttribute('data-url'));
-          alert('Renewal URL will be added soon. Please contact the gym for renewal options.');
+          alert('Enrollment URL will be added soon. Please contact the gym for enrollment options.');
         }
       });
     });
