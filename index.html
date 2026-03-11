@@ -18,6 +18,55 @@
       <img src="images/9round-white-logo.png" alt="9Round Logo" class="logo">
     </div>
 
+    <section class="hero-conversion">
+      <p class="hero-eyebrow">ALL MEMBERSHIP OPTIONS</p>
+      <h1 class="hero-title">Choose the Plan That Fits Your Schedule and Budget</h1>
+      <p class="hero-subtitle">Compare Unlimited, 8 Sessions, and 4 Sessions in one place, lock in paid-in-full savings, and start with the option that matches your routine.</p>
+
+      <div class="hero-scroll-callouts" aria-label="Membership highlights">
+        <div class="hero-scroll-track">
+          <div class="hero-scroll-seq">
+            <span class="hero-scroll-item">All plans in one place</span>
+            <span class="hero-scroll-item">Up to 5.6 months free</span>
+            <span class="hero-scroll-item">Open Door Access: 4 AM - 11 PM</span>
+            <span class="hero-scroll-item">Trainer-Led Sessions</span>
+            <span class="hero-scroll-item">Most members join now to lock pricing</span>
+          </div>
+          <div class="hero-scroll-seq" aria-hidden="true">
+            <span class="hero-scroll-item">All plans in one place</span>
+            <span class="hero-scroll-item">Up to 5.6 months free</span>
+            <span class="hero-scroll-item">Open Door Access: 4 AM - 11 PM</span>
+            <span class="hero-scroll-item">Trainer-Led Sessions</span>
+            <span class="hero-scroll-item">Most members join now to lock pricing</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-meta-grid">
+        <div class="hero-meta-card hero-included-card">
+          <span class="hero-meta-label">Included With Purchase</span>
+          <div class="hero-item-tags">
+            <span>9Round Gloves</span>
+            <span>Hand Wraps</span>
+            <span>Pulse Heart-Rate Monitor</span>
+          </div>
+        </div>
+        <div class="hero-meta-card hero-promo-card promo-copy-card" role="button" tabindex="0" data-copy-code="ENROLL" aria-label="Click to copy promo code ENROLL">
+          <span class="hero-meta-label">Promo Code</span>
+          <p>Tap to copy instantly and apply at checkout.</p>
+          <div class="hero-promo-action">
+            <span class="hero-code-pill">ENROLL</span>
+          </div>
+          <span class="hero-copy-feedback" aria-live="polite"></span>
+        </div>
+      </div>
+
+      <div class="hero-cta-group">
+        <a class="hero-cta-button hero-cta-primary" href="#plan-filters">Compare All Plans</a>
+        <a class="hero-cta-button hero-cta-secondary" href="#unlimited-plan">Start with Unlimited</a>
+      </div>
+    </section>
+
     <div class="benefits-section">
       <ul class="benefits-list">
         <li>4 AM - 11 PM Door Access</li>
@@ -30,7 +79,7 @@
     </div>
 
     <!-- Pricing Filter Tabs -->
-    <div class="pricing-tabs">
+    <div class="pricing-tabs" id="plan-filters">
       <button class="pricing-tab active" data-filter="all">
         <span class="tab-icon">☰</span>
         <span class="tab-text">ALL</span>
@@ -49,9 +98,9 @@
       </button>
     </div>
 
-    <div class="pricing-grid">
+    <div class="pricing-grid" id="all-plans">
       <!-- Unlimited Sessions -->
-      <div class="pricing-tier" data-tier="unlimited">
+      <div class="pricing-tier" data-tier="unlimited" id="unlimited-plan">
         <h2 class="tier-title">UNLIMITED SESSIONS</h2>
         
         <div class="pricing-option pif-option">
@@ -620,6 +669,65 @@
       });
     })();
 
+    // Promo code copy interaction
+    (function() {
+      const promoCards = document.querySelectorAll('.promo-copy-card');
+      if (!promoCards.length) return;
+
+      async function writeToClipboard(text) {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+          return;
+        }
+
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        textarea.style.left = '-9999px';
+        document.body.appendChild(textarea);
+        textarea.focus();
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+      }
+
+      promoCards.forEach(card => {
+        const code = card.getAttribute('data-copy-code') || '';
+        const feedback = card.querySelector('.hero-copy-feedback');
+        let resetTimer;
+
+        const setState = (state, message) => {
+          card.classList.remove('is-copying', 'is-copied', 'is-copy-error');
+          if (state) card.classList.add(state);
+          if (feedback) feedback.textContent = message || '';
+        };
+
+        const copyCode = async () => {
+          if (!code) return;
+          clearTimeout(resetTimer);
+          setState('is-copying', 'Copying code...');
+
+          try {
+            await writeToClipboard(code);
+            setState('is-copied', 'Copied! Paste ENROLL at checkout.');
+            resetTimer = setTimeout(() => setState('', ''), 1800);
+          } catch (error) {
+            setState('is-copy-error', 'Copy failed. Please copy ENROLL manually.');
+            resetTimer = setTimeout(() => setState('', ''), 2200);
+          }
+        };
+
+        card.addEventListener('click', copyCode);
+        card.addEventListener('keydown', function(event) {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            copyCode();
+          }
+        });
+      });
+    })();
+
     // Add click handlers for ENROLL buttons
     document.querySelectorAll('.enroll-button').forEach(button => {
       button.addEventListener('click', function(e) {
@@ -709,5 +817,3 @@
   </script>
 </body>
 </html>
-
-
