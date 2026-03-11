@@ -21,20 +21,45 @@
     <section class="hero-conversion">
       <p class="hero-eyebrow">LIMITED-TIME VALUE</p>
       <h1 class="hero-title">Get Unlimited 9Round Access and Save Big From Day 1</h1>
-      <p class="hero-subtitle">Train whenever your schedule allows, get coached every session, and lock in the strongest paid-in-full savings before current offers change.</p>
+      <p class="hero-subtitle">Train on your schedule, get coach support every session, and lock in the strongest paid-in-full savings while current offers are live.</p>
 
-      <div class="hero-urgency-row">
-        <span class="hero-urgency-pill">Up to 5.6 months free</span>
-        <span class="hero-urgency-pill">Most members start now to lock pricing</span>
+      <div class="hero-scroll-callouts" aria-label="Membership highlights">
+        <div class="hero-scroll-track">
+          <div class="hero-scroll-seq">
+            <span class="hero-scroll-item">Up to 5.6 months free</span>
+            <span class="hero-scroll-item">Open Door Access: 4 AM - 11 PM</span>
+            <span class="hero-scroll-item">Trainer-Led Sessions</span>
+            <span class="hero-scroll-item">Monthly Progress Scans</span>
+            <span class="hero-scroll-item">Most members join now to lock pricing</span>
+          </div>
+          <div class="hero-scroll-seq" aria-hidden="true">
+            <span class="hero-scroll-item">Up to 5.6 months free</span>
+            <span class="hero-scroll-item">Open Door Access: 4 AM - 11 PM</span>
+            <span class="hero-scroll-item">Trainer-Led Sessions</span>
+            <span class="hero-scroll-item">Monthly Progress Scans</span>
+            <span class="hero-scroll-item">Most members join now to lock pricing</span>
+          </div>
+        </div>
       </div>
 
-      <div class="hero-benefit-chips">
-        <span>Open Door Access: 4 AM - 11 PM</span>
-        <span>Trainer-Led Sessions</span>
-        <span>Monthly Progress Scans</span>
+      <div class="hero-meta-grid">
+        <div class="hero-meta-card hero-included-card">
+          <span class="hero-meta-label">Included With Purchase</span>
+          <div class="hero-item-tags">
+            <span>9Round Gloves</span>
+            <span>Hand Wraps</span>
+            <span>Pulse Heart-Rate Monitor</span>
+          </div>
+        </div>
+        <div class="hero-meta-card hero-promo-card promo-copy-card" role="button" tabindex="0" data-copy-code="ENROLL" aria-label="Click to copy promo code ENROLL">
+          <span class="hero-meta-label">Promo Code</span>
+          <p>Tap to copy instantly and apply at checkout.</p>
+          <div class="hero-promo-action">
+            <span class="hero-code-pill">ENROLL</span>
+          </div>
+          <span class="hero-copy-feedback" aria-live="polite"></span>
+        </div>
       </div>
-
-      <p class="hero-included">Including with purchase: 9Round Gloves, Hand Wraps, Pulse Heart-Rate Monitor</p>
 
       <div class="hero-cta-group">
         <a class="hero-cta-button hero-cta-primary" href="#best-value">Claim Best Deal</a>
@@ -59,6 +84,16 @@
       <div class="pricing-tier" data-tier="unlimited" id="unlimited-tier">
         <h2 class="tier-title">UNLIMITED SESSIONS</h2>
         
+        <div class="pricing-option pif-option pif-option-3mo">
+          <h3 class="option-title">3-Month Paid In Full</h3>
+          <div class="price">$588</div>
+          <div class="price-per-session">$6.53/session</div>
+          <div class="highlight-badge" data-pif="588" data-monthly="228" data-tier="Unlimited" data-enroll-url="https://app.clubready.com/JoinUs/9261/522220" data-months="3">0.4 MONTHS FREE</div>
+          <p class="price-note">3 consecutive months</p>
+          <p class="option-note">No freeze option</p>
+          <a href="#" class="enroll-button" data-url="https://app.clubready.com/JoinUs/9261/522220">ENROLL</a>
+        </div>
+
         <div class="pricing-option pif-option" id="best-value">
           <h3 class="option-title">6-Month Paid In Full</h3>
           <div class="price">$898</div>
@@ -86,16 +121,6 @@
           <p class="option-note">Cancel anytime with 30-day notice</p>
           <p class="option-note">Freeze option ($5 monthly)</p>
           <a href="#" class="enroll-button" data-url="https://app.clubready.com/JoinUs/9261/520974">ENROLL</a>
-        </div>
-
-        <div class="pricing-option pif-option pif-option-3mo">
-          <h3 class="option-title">3-Month Paid In Full</h3>
-          <div class="price">$588</div>
-          <div class="price-per-session">$6.53/session</div>
-          <div class="highlight-badge" data-pif="588" data-monthly="228" data-tier="Unlimited" data-enroll-url="https://app.clubready.com/JoinUs/9261/522220" data-months="3">0.4 MONTHS FREE</div>
-          <p class="price-note">3 consecutive months</p>
-          <p class="option-note">No freeze option</p>
-          <a href="#" class="enroll-button" data-url="https://app.clubready.com/JoinUs/9261/522220">ENROLL</a>
         </div>
       </div>
     </div>
@@ -553,6 +578,65 @@
           closeSavingsModal();
           showModal(url);
         }
+      });
+    })();
+
+    // Promo code copy interaction
+    (function() {
+      const promoCards = document.querySelectorAll(".promo-copy-card");
+      if (!promoCards.length) return;
+
+      async function writeToClipboard(text) {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+          return;
+        }
+
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        textarea.style.left = "-9999px";
+        document.body.appendChild(textarea);
+        textarea.focus();
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+      }
+
+      promoCards.forEach(card => {
+        const code = card.getAttribute("data-copy-code") || "";
+        const feedback = card.querySelector(".hero-copy-feedback");
+        let resetTimer;
+
+        const setState = (state, message) => {
+          card.classList.remove("is-copying", "is-copied", "is-copy-error");
+          if (state) card.classList.add(state);
+          if (feedback) feedback.textContent = message || "";
+        };
+
+        const copyCode = async () => {
+          if (!code) return;
+          clearTimeout(resetTimer);
+          setState("is-copying", "Copying code...");
+
+          try {
+            await writeToClipboard(code);
+            setState("is-copied", "Copied! Paste ENROLL at checkout.");
+            resetTimer = setTimeout(() => setState("", ""), 1800);
+          } catch (error) {
+            setState("is-copy-error", "Copy failed. Please copy ENROLL manually.");
+            resetTimer = setTimeout(() => setState("", ""), 2200);
+          }
+        };
+
+        card.addEventListener("click", copyCode);
+        card.addEventListener("keydown", function(event) {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            copyCode();
+          }
+        });
       });
     })();
 
