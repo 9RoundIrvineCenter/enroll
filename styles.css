@@ -973,25 +973,12 @@ body {
   right: 0;
   height: 3px;
   background: linear-gradient(90deg, transparent, var(--accent-red), transparent);
-  opacity: 0;
+  opacity: 0.28;
   transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.pricing-tier:hover {
-  transform: translateY(-12px);
-  box-shadow: var(--shadow-xl);
-}
-
-.pricing-tier:hover::before {
-  opacity: 1;
 }
 
 [data-theme="dark"] .pricing-tier {
   box-shadow: var(--shadow);
-}
-
-[data-theme="dark"] .pricing-tier:hover {
-  box-shadow: var(--shadow-xl);
 }
 
 .tier-title {
