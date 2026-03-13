@@ -51,11 +51,11 @@
             <span>Pulse Heart-Rate Monitor</span>
           </div>
         </div>
-        <div class="hero-meta-card hero-promo-card promo-copy-card" role="button" tabindex="0" data-copy-code="ENROLL" aria-label="Click to copy promo code ENROLL">
+        <div class="hero-meta-card hero-promo-card promo-copy-card" role="button" tabindex="0" data-copy-code="FTW" aria-label="Click to copy promo code FTW">
           <span class="hero-meta-label">Promo Code</span>
           <p>Tap to copy instantly and apply at checkout.</p>
           <div class="hero-promo-action">
-            <span class="hero-code-pill">ENROLL</span>
+            <span class="hero-code-pill">FTW</span>
           </div>
           <span class="hero-copy-feedback" aria-live="polite"></span>
         </div>
@@ -622,10 +622,10 @@
 
           try {
             await writeToClipboard(code);
-            setState("is-copied", "Copied! Paste ENROLL at checkout.");
+            setState("is-copied", "Copied! Paste FTW at checkout.");
             resetTimer = setTimeout(() => setState("", ""), 1800);
           } catch (error) {
-            setState("is-copy-error", "Copy failed. Please copy ENROLL manually.");
+            setState("is-copy-error", "Copy failed. Please copy FTW manually.");
             resetTimer = setTimeout(() => setState("", ""), 2200);
           }
         };
