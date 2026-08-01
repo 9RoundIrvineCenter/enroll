@@ -306,13 +306,13 @@ body {
   display: none;
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 769px) {
   .pricing-tabs-wrap {
     position: sticky;
     top: 0;
     z-index: 100;
     padding: 12px 0 14px;
-    /* Transform from fadeInUp breaks sticky; clear it on desktop. */
+    /* Clear fadeInUp transform so sticky can pin to the viewport. */
     animation: none;
     transform: none;
     background:
