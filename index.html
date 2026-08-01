@@ -7,116 +7,347 @@
   <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <button class="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode">
-    <span class="theme-icon">🌙</span>
-  </button>
+  <div class="page-atmosphere" aria-hidden="true"></div>
   <div class="container">
     <div class="logo-container">
-      <img src="images/9round-white-logo.png" alt="9Round Logo" class="logo">
+      <img src="images/9round-kickboxing-logo.png" alt="9Round Kickboxing Fitness" class="logo">
     </div>
 
-    <section class="hero-conversion">
-      <p class="hero-eyebrow">ALL MEMBERSHIP OPTIONS</p>
-      <h1 class="hero-title">Choose the Plan That Fits Your Schedule and Budget</h1>
-      <p class="hero-subtitle">Compare Unlimited, 8 Sessions, and 4 Sessions in one place, lock in paid-in-full savings, and start with the option that matches your routine.</p>
-
-      <div class="hero-scroll-callouts" aria-label="Membership highlights">
-        <div class="hero-scroll-track">
-          <div class="hero-scroll-seq">
-            <span class="hero-scroll-item">All plans in one place</span>
-            <span class="hero-scroll-item">Up to 5.6 months free</span>
-            <span class="hero-scroll-item">Open Door Access: 4 AM - 11 PM</span>
-            <span class="hero-scroll-item">Trainer-Led Sessions</span>
-            <span class="hero-scroll-item">Most members join now to lock pricing</span>
-          </div>
-          <div class="hero-scroll-seq" aria-hidden="true">
-            <span class="hero-scroll-item">All plans in one place</span>
-            <span class="hero-scroll-item">Up to 5.6 months free</span>
-            <span class="hero-scroll-item">Open Door Access: 4 AM - 11 PM</span>
-            <span class="hero-scroll-item">Trainer-Led Sessions</span>
-            <span class="hero-scroll-item">Most members join now to lock pricing</span>
-          </div>
-        </div>
+    <div class="pricing-tabs-wrap">
+      <div class="pricing-tabs" role="tablist" aria-label="Membership types">
+        <button class="pricing-tab active" type="button" role="tab" aria-selected="true" data-filter="intro">
+          <span class="tab-text">Intro Offers</span>
+          <span class="tab-desc">First timers only</span>
+        </button>
+        <button class="pricing-tab" type="button" role="tab" aria-selected="false" data-filter="pif">
+          <span class="tab-text">Paid-in-Full</span>
+          <span class="tab-desc">One payment · biggest savings</span>
+        </button>
+        <button class="pricing-tab" type="button" role="tab" aria-selected="false" data-filter="term">
+          <span class="tab-text">Term</span>
+          <span class="tab-desc">Fixed months · lower monthly</span>
+        </button>
+        <button class="pricing-tab" type="button" role="tab" aria-selected="false" data-filter="mtm">
+          <span class="tab-text">Month-to-Month</span>
+          <span class="tab-desc">Flexible · cancel with notice</span>
+        </button>
       </div>
-
-      <div class="hero-meta-grid">
-        <div class="hero-meta-card hero-included-card">
-          <span class="hero-meta-label">Included With Purchase</span>
-          <div class="hero-item-tags">
-            <span>9Round Gloves</span>
-            <span>Hand Wraps</span>
-            <span>Pulse Heart-Rate Monitor</span>
-          </div>
-        </div>
-        <div class="hero-meta-card hero-promo-card promo-copy-card" role="button" tabindex="0" data-copy-code="FTW" aria-label="Click to copy promo code FTW">
-          <span class="hero-meta-label">Promo Code</span>
-          <p>Tap to copy instantly and apply at checkout.</p>
-          <div class="hero-promo-action">
-            <span class="hero-code-pill">FTW</span>
-          </div>
-          <span class="hero-copy-feedback" aria-live="polite"></span>
-        </div>
-      </div>
-
-      <div class="hero-cta-group">
-        <a class="hero-cta-button hero-cta-primary" href="#all-plans">Compare All Plans</a>
-        <a class="hero-cta-button hero-cta-secondary" href="#unlimited-plan">Start with Unlimited</a>
-      </div>
-    </section>
-
-    <div class="benefits-section">
-      <ul class="benefits-list">
-        <li>4 AM - 11 PM Door Access</li>
-        <li>Trainer-Led Sessions</li>
-        <li>Monthly Scans</li>
-        <li>Personal Training Discount</li>
-        <li>Guest Privileges*</li>
-        <li class="no-checkmark">9ROUND APP: Workout Anywhere, Track Workouts & Heart Rate, Weekly & Monthly Challenges, Daily Meal Plans.</li>
-      </ul>
     </div>
 
-    <div class="pricing-grid pif-grid" id="all-plans">
-      <!-- Unlimited Sessions -->
-      <div class="pricing-tier pif-unlimited-tier" data-tier="unlimited" id="unlimited-plan">
-        <h2 class="tier-title">UNLIMITED SESSIONS</h2>
+    <div class="pricing-mobile-nav" aria-label="Membership types">
+      <div class="pricing-mobile-options" role="tablist">
+        <button class="pricing-mobile-option active" type="button" role="tab" aria-selected="true" data-filter="intro">
+          <span class="pricing-mobile-option-check" aria-hidden="true"></span>
+          <span class="pricing-mobile-option-copy">
+            <span class="pricing-mobile-option-title">Intro Offers</span>
+            <span class="pricing-mobile-option-desc">First timers only</span>
+          </span>
+        </button>
+        <button class="pricing-mobile-option" type="button" role="tab" aria-selected="false" data-filter="pif">
+          <span class="pricing-mobile-option-check" aria-hidden="true"></span>
+          <span class="pricing-mobile-option-copy">
+            <span class="pricing-mobile-option-title">Paid-in-Full</span>
+            <span class="pricing-mobile-option-desc">One payment · biggest savings</span>
+          </span>
+        </button>
+        <button class="pricing-mobile-option" type="button" role="tab" aria-selected="false" data-filter="term">
+          <span class="pricing-mobile-option-check" aria-hidden="true"></span>
+          <span class="pricing-mobile-option-copy">
+            <span class="pricing-mobile-option-title">Term</span>
+            <span class="pricing-mobile-option-desc">Fixed months · lower monthly rate</span>
+          </span>
+        </button>
+        <button class="pricing-mobile-option" type="button" role="tab" aria-selected="false" data-filter="mtm">
+          <span class="pricing-mobile-option-check" aria-hidden="true"></span>
+          <span class="pricing-mobile-option-copy">
+            <span class="pricing-mobile-option-title">Month-to-Month</span>
+            <span class="pricing-mobile-option-desc">Flexible · cancel with notice</span>
+          </span>
+        </button>
+      </div>
+    </div>
 
-        <div class="pricing-option pif-option pif-option-3mo">
-          <h3 class="option-title">3-Month Paid In Full</h3>
-          <div class="price">$564</div>
-          <div class="price-per-session">$6.27/session</div>
-          <div class="highlight-badge" data-pif="564" data-monthly="228" data-tier="Unlimited" data-enroll-url="https://app.clubready.com/JoinUs/9261/522220" data-months="3">0.4 MONTHS FREE</div>
-          <p class="price-note">3 consecutive months</p>
-          <p class="option-note">No freeze option</p>
-          <a href="#" class="enroll-button" data-url="https://app.clubready.com/JoinUs/9261/522220">ENROLL</a>
+    <div class="limited-offer-banner" id="limitedOfferBanner" role="status" hidden>
+      <span class="limited-offer-badge">25% OFF</span>
+      <span class="limited-offer-copy">
+        <span class="limited-offer-title">Limited Time Offer</span>
+        <span class="limited-offer-subtitle">On all Paid-in-Full memberships</span>
+      </span>
+    </div>
+
+    <div class="pricing-grid filtered">
+      <!-- Intro Offers -->
+      <div class="pricing-tier filtered-tier intro-tier" data-tier="intro">
+        <h2 class="tier-title">Intro Offers</h2>
+        <div class="benefits-section tier-benefits">
+          <ul class="benefits-list">
+            <li>4 AM - 11 PM Door Access</li>
+            <li>Flex Hours</li>
+          </ul>
         </div>
 
-        <div class="pricing-option pif-option">
-          <h3 class="option-title">6-Month Paid In Full</h3>
-          <div class="price">$1008</div>
-          <div class="price-per-session">$5.60/session</div>
-          <div class="highlight-badge" data-pif="1008" data-monthly="228" data-tier="Unlimited" data-enroll-url="https://www.clubready.com/JoinUs/9261/516774" data-months="6">2 MONTHS FREE</div>
-          <p class="price-note">6 consecutive months</p>
-          <p class="option-note">No freeze option</p>
-          <a href="#" class="enroll-button" data-url="https://www.clubready.com/JoinUs/9261/516774">ENROLL</a>
+        <div class="pricing-option pif-option intro-option">
+          <h3 class="option-title">One-Month Trial</h3>
+          <div class="price">$188</div>
+          <div class="price-per-session">$6.27 per session</div>
+          <ul class="option-features">
+            <li>Unlimited Sess. Expires After 30 Days</li>
+            <li>No Personal Training</li>
+            <li>No Freeze Option</li>
+          </ul>
+          <a href="https://app.clubready.com/JoinUs/9261/620953" class="enroll-button" target="_blank" rel="noopener noreferrer">ENROLL</a>
+        </div>
+
+        <div class="pricing-option pif-option intro-option">
+          <h3 class="option-title">Two-Week Trial</h3>
+          <div class="price">$108</div>
+          <div class="price-per-session">$7.72 per session</div>
+          <ul class="option-features">
+            <li>Unlimited Sess. Expires After 14 Days</li>
+            <li>No Personal Training</li>
+            <li>No Freeze Option</li>
+          </ul>
+          <a href="https://app.clubready.com/JoinUs/9261/502498" class="enroll-button" target="_blank" rel="noopener noreferrer">ENROLL</a>
+        </div>
+
+        <div class="pricing-option pif-option intro-option option-span-center">
+          <h3 class="option-title">5 Sessions</h3>
+          <div class="price">$100</div>
+          <div class="price-per-session">$20 per session</div>
+          <ul class="option-features">
+            <li>Expires After 14 Days</li>
+            <li>No Personal Training</li>
+            <li>No Freeze Option</li>
+          </ul>
+          <a href="https://app.clubready.com/JoinUs/9261/639262" class="enroll-button" target="_blank" rel="noopener noreferrer">ENROLL</a>
+        </div>
+
+        <div class="intro-gear" aria-label="New member gear">
+          <h3 class="intro-gear-title">New Member Gear</h3>
+          <div class="intro-gear-items">
+            <div class="intro-gear-item">
+              <div class="intro-gear-price">$65</div>
+              <div class="intro-gear-label">Gloves</div>
+            </div>
+            <div class="intro-gear-item">
+              <div class="intro-gear-price">$15</div>
+              <div class="intro-gear-label">Wraps</div>
+            </div>
+            <div class="intro-gear-total">
+              <div class="intro-gear-price">$80</div>
+              <div class="intro-gear-label">Total</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paid-in-Full -->
+      <div class="pricing-tier" data-tier="pif" style="display: none;">
+        <h2 class="tier-title">Unlimited Paid-in-Full Memberships</h2>
+        <div class="benefits-section tier-benefits">
+          <ul class="benefits-list">
+            <li>4 AM - 11 PM Door Access</li>
+            <li>Referral Credits</li>
+            <li>Personal Training Discount</li>
+            <li>Flex Hours</li>
+            <li>Monthly Scans</li>
+            <li>Guest Privileges*</li>
+            <li class="no-checkmark">9ROUND APP: Workout Anywhere, Track Workouts & Heart Rate, Weekly & Monthly Challenges.</li>
+          </ul>
         </div>
 
         <div class="pricing-option pif-option pif-option-12mo">
-          <h3 class="option-title">12-Month Paid In Full</h3>
-          <div class="price">$1776</div>
-          <div class="price-per-session">$4.93/session</div>
-          <div class="highlight-badge" data-pif="1776" data-monthly="228" data-tier="Unlimited" data-enroll-url="https://app.clubready.com/JoinUs/9261/516777" data-months="12">5.6 MONTHS FREE</div>
-          <p class="price-note">12 consecutive months</p>
-          <p class="option-note">No freeze option</p>
-          <a href="#" class="enroll-button" data-url="https://app.clubready.com/JoinUs/9261/516777">ENROLL</a>
+          <h3 class="option-title">12-Month PIF</h3>
+          <div class="highlight-badge" data-pif="1692" data-monthly="228" data-tier="Unlimited" data-enroll-url="https://app.clubready.com/JoinUs/9261/585792" data-months="12">25% OFF</div>
+          <div class="price-original">$2256</div>
+          <div class="price">$1692</div>
+          <div class="price-per-session">$4.70 per session</div>
+          <ul class="option-features">
+            <li>12 Consecutive Months</li>
+            <li>12 Free Personal Training</li>
+            <li>No Freeze Option</li>
+          </ul>
+          <a href="https://app.clubready.com/JoinUs/9261/585792" class="enroll-button" target="_blank" rel="noopener noreferrer">ENROLL</a>
+        </div>
+
+        <div class="pricing-option pif-option">
+          <h3 class="option-title">6-Month PIF</h3>
+          <div class="highlight-badge" data-pif="936" data-monthly="228" data-tier="Unlimited" data-enroll-url="https://app.clubready.com/JoinUs/9261/585791" data-months="6">25% OFF</div>
+          <div class="price-original">$1248</div>
+          <div class="price">$936</div>
+          <div class="price-per-session">$5.20 per session</div>
+          <ul class="option-features">
+            <li>6 Consecutive Months</li>
+            <li>6 Free Personal Training</li>
+            <li>No Freeze Option</li>
+          </ul>
+          <a href="https://app.clubready.com/JoinUs/9261/585791" class="enroll-button" target="_blank" rel="noopener noreferrer">ENROLL</a>
+        </div>
+
+        <div class="pricing-option pif-option pif-option-3mo option-span-center">
+          <h3 class="option-title">3-Month PIF</h3>
+          <div class="highlight-badge" data-pif="513" data-monthly="228" data-tier="Unlimited" data-enroll-url="https://app.clubready.com/JoinUs/9261/585790" data-months="3">25% OFF</div>
+          <div class="price-original">$684</div>
+          <div class="price">$513</div>
+          <div class="price-per-session">$5.70 per session</div>
+          <ul class="option-features">
+            <li>3 Consecutive Months</li>
+            <li>3 Free Personal Training</li>
+            <li>No Freeze Option</li>
+          </ul>
+          <a href="https://app.clubready.com/JoinUs/9261/585790" class="enroll-button" target="_blank" rel="noopener noreferrer">ENROLL</a>
+        </div>
+      </div>
+
+      <!-- Term -->
+      <div class="pricing-tier" data-tier="term" style="display: none;">
+        <h2 class="tier-title">Unlimited Term Memberships</h2>
+        <div class="benefits-section tier-benefits">
+          <ul class="benefits-list">
+            <li>4 AM - 11 PM Door Access</li>
+            <li>Referral Credits</li>
+            <li>Personal Training Discount</li>
+            <li>Flex Hours</li>
+            <li>Monthly Scans</li>
+            <li>Guest Privileges*</li>
+            <li class="no-checkmark">9ROUND APP: Workout Anywhere, Track Workouts & Heart Rate, Weekly & Monthly Challenges.</li>
+          </ul>
+        </div>
+
+        <div class="pricing-option pif-option pif-option-12mo">
+          <h3 class="option-title">12-Month Term</h3>
+          <div class="price">$188<span class="price-period">/MO.</span></div>
+          <div class="price-per-session">$6.27 per session</div>
+          <ul class="option-features">
+            <li>12 Consecutive Months</li>
+            <li>1 Free Personal Training per Month</li>
+            <li>No Freeze Option</li>
+          </ul>
+          <a href="https://app.clubready.com/JoinUs/9261/632682" class="enroll-button" target="_blank" rel="noopener noreferrer">ENROLL</a>
+        </div>
+
+        <div class="pricing-option pif-option">
+          <h3 class="option-title">6-Month Term</h3>
+          <div class="price">$208<span class="price-period">/MO.</span></div>
+          <div class="price-per-session">$6.93 per session</div>
+          <ul class="option-features">
+            <li>6 Consecutive Months</li>
+            <li>1 Free Personal Training per Month</li>
+            <li>No Freeze Option</li>
+          </ul>
+          <a href="https://app.clubready.com/JoinUs/9261/632681" class="enroll-button" target="_blank" rel="noopener noreferrer">ENROLL</a>
+        </div>
+
+        <div class="pricing-option pif-option pif-option-3mo option-span-center">
+          <h3 class="option-title">3-Month Term</h3>
+          <div class="price">$228<span class="price-period">/MO.</span></div>
+          <div class="price-per-session">$7.60 per session</div>
+          <ul class="option-features">
+            <li>3 Consecutive Months</li>
+            <li>1 Free Personal Training per Month</li>
+            <li>No Freeze Option</li>
+          </ul>
+          <a href="https://app.clubready.com/JoinUs/9261/632680" class="enroll-button" target="_blank" rel="noopener noreferrer">ENROLL</a>
+        </div>
+      </div>
+
+      <!-- Month-to-Month -->
+      <div class="pricing-tier" data-tier="mtm" style="display: none;">
+        <h2 class="tier-title">Month-to-Month Memberships</h2>
+        <div class="benefits-section tier-benefits">
+          <ul class="benefits-list">
+            <li>4 AM - 11 PM Door Access</li>
+            <li>Referral Credits</li>
+            <li>Personal Training Discount</li>
+            <li>Flex Hours</li>
+            <li>Monthly Scans</li>
+            <li>Guest Privileges*</li>
+            <li class="no-checkmark">9ROUND APP: Workout Anywhere, Track Workouts & Heart Rate, Weekly & Monthly Challenges.</li>
+          </ul>
+        </div>
+
+        <div class="pricing-option monthly-option">
+          <h3 class="option-title">Unlimited</h3>
+          <div class="option-promo" data-promo-code="UNLIMITED">
+            <span class="option-promo-label">Promo Code</span>
+            <span class="option-promo-value">UNLIMITED</span>
+            <button type="button" class="promo-copy-button" aria-label="Copy promo code UNLIMITED" title="Copy promo code">
+              <svg class="promo-copy-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 9h11v11H9z"></path>
+                <path d="M4 4h11v2H6v9H4z"></path>
+              </svg>
+              <span class="promo-copy-text">Copy</span>
+            </button>
+          </div>
+          <div class="price">$188<span class="price-period">1ST MO.</span></div>
+          <div class="price-after">$228 /MO. AFTER</div>
+          <div class="price-per-session">$7.60 per session</div>
+          <ul class="option-features">
+            <li>Cancel With 30-Day Notice</li>
+            <li>1 Free Personal Training per Month</li>
+            <li>Freeze Option</li>
+          </ul>
+          <a href="https://app.clubready.com/JoinUs/9261/631998" class="enroll-button" target="_blank" rel="noopener noreferrer">ENROLL</a>
+        </div>
+
+        <div class="pricing-option monthly-option">
+          <h3 class="option-title">8 Sessions /Mo.</h3>
+          <div class="option-promo" data-promo-code="LIMITED">
+            <span class="option-promo-label">Promo Code</span>
+            <span class="option-promo-value">LIMITED</span>
+            <button type="button" class="promo-copy-button" aria-label="Copy promo code LIMITED" title="Copy promo code">
+              <svg class="promo-copy-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 9h11v11H9z"></path>
+                <path d="M4 4h11v2H6v9H4z"></path>
+              </svg>
+              <span class="promo-copy-text">Copy</span>
+            </button>
+          </div>
+          <div class="price">$188<span class="price-period">1ST MO.</span></div>
+          <div class="price-after">$208 /MO. AFTER</div>
+          <div class="price-per-session">$26 per session</div>
+          <ul class="option-features">
+            <li>Cancel With 30-Day Notice</li>
+            <li>No Personal Training</li>
+            <li>Freeze Option</li>
+          </ul>
+          <a href="https://app.clubready.com/JoinUs/9261/632707" class="enroll-button" target="_blank" rel="noopener noreferrer">ENROLL</a>
+        </div>
+
+        <div class="pricing-option monthly-option option-span-center">
+          <h3 class="option-title">4 Sessions /Mo.</h3>
+          <div class="option-promo" data-promo-code="LIMITED">
+            <span class="option-promo-label">Promo Code</span>
+            <span class="option-promo-value">LIMITED</span>
+            <button type="button" class="promo-copy-button" aria-label="Copy promo code LIMITED" title="Copy promo code">
+              <svg class="promo-copy-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 9h11v11H9z"></path>
+                <path d="M4 4h11v2H6v9H4z"></path>
+              </svg>
+              <span class="promo-copy-text">Copy</span>
+            </button>
+          </div>
+          <div class="price">$108<span class="price-period">1ST MO.</span></div>
+          <div class="price-after">$128 /MO. AFTER</div>
+          <div class="price-per-session">$32 per session</div>
+          <ul class="option-features">
+            <li>Cancel With 30-Day Notice</li>
+            <li>No Personal Training</li>
+            <li>Freeze Option</li>
+          </ul>
+          <a href="https://app.clubready.com/JoinUs/9261/632733" class="enroll-button" target="_blank" rel="noopener noreferrer">ENROLL</a>
         </div>
       </div>
     </div>
 
-    <div class="guest-note">
-      <p>*Guest Privileges: Guest must be new to 9Round or haven't visited in 6+ months. Max 4 lifetime visits. Must check-in and be with a member during Trainer-Led hours.</p>
+    <div class="guest-note" id="guestNote" hidden>
+      <p>*Guest Privileges: New guests or inactive 6+ months. Up to 4 visits. Check-in during Trainer-Led hours is required.</p>
     </div>
 
     <div class="referral-note">
@@ -134,45 +365,6 @@
       </p>
     </div>
   </footer>
-
-  <!-- Enrollment Modal -->
-  <div id="enrollmentModal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="modal-title-wrapper">
-          <h3 class="modal-title">
-            <span class="modal-title-line1">MEMBERSHIP</span>
-            <span class="modal-title-line2">ENROLLMENT</span>
-          </h3>
-        </div>
-        <div class="modal-header-actions">
-          <button class="modal-refresh" aria-label="Refresh content" title="Refresh content">
-            <span class="refresh-icon">↻</span>
-            <span class="refresh-text">Refresh</span>
-          </button>
-          <button class="modal-close" aria-label="Close modal">&times;</button>
-        </div>
-      </div>
-      <div class="modal-body">
-        <div class="modal-iframe-overlay">
-          <div class="modal-overlay-content">
-            <img src="images/favicon.svg" alt="9Round Logo" class="modal-overlay-logo">
-            <div class="modal-overlay-info">
-              <div class="modal-overlay-name">9Round Irvine Center</div>
-              <div class="modal-overlay-address">6610 Irvine Center Dr, Irvine, CA 92618</div>
-              <a href="tel:949-431-6679" class="modal-overlay-phone">949-431-6679</a>
-            </div>
-          </div>
-        </div>
-        <div class="modal-loader" id="modalLoader">
-          <div class="loader-spinner"></div>
-          <p class="loader-text">Loading...</p>
-          <button class="status-check-btn" style="display:none; margin-top: 20px; padding: 10px 20px; background: #dc2626; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; font-weight: 600;">Check Status / Close</button>
-        </div>
-        <iframe id="enrollmentIframe" src="" frameborder="0"></iframe>
-      </div>
-    </div>
-  </div>
 
   <!-- Savings Modal -->
   <div id="savingsModal" class="modal">
@@ -200,294 +392,13 @@
             <strong id="savings-amount">$0</strong>
           </div>
           <div class="savings-note" id="savings-note-text">That's like getting 2 months FREE!</div>
-          <a href="#" class="enroll-button savings-modal-enroll" id="savings-enroll-button">ENROLL</a>
+          <a href="#" class="enroll-button savings-modal-enroll" id="savings-enroll-button" target="_blank" rel="noopener noreferrer">ENROLL</a>
         </div>
       </div>
     </div>
   </div>
 
   <script>
-    // Theme management
-    (function() {
-      const themeToggle = document.querySelector('.theme-toggle');
-      const themeIcon = document.querySelector('.theme-icon');
-      const html = document.documentElement;
-      
-      // Get saved theme or detect system preference
-      function getInitialTheme() {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-          return savedTheme;
-        }
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      }
-      
-      // Apply theme
-      function setTheme(theme) {
-        html.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-        themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
-      }
-      
-      // Initialize theme
-      setTheme(getInitialTheme());
-      
-      // Toggle theme on button click
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = html.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        setTheme(newTheme);
-      });
-      
-      // Listen for system theme changes (optional)
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        // Only auto-switch if user hasn't manually set a preference
-        if (!localStorage.getItem('theme')) {
-          setTheme(e.matches ? 'dark' : 'light');
-        }
-      });
-    })();
-
-    // Modal functionality
-    const modal = document.getElementById('enrollmentModal');
-    const modalIframe = document.getElementById('enrollmentIframe');
-    const modalClose = document.querySelector('.modal-close');
-    const modalRefresh = document.querySelector('.modal-refresh');
-    const modalLoader = document.getElementById('modalLoader');
-    const loaderText = modalLoader.querySelector('.loader-text');
-    const statusCheckBtn = modalLoader.querySelector('.status-check-btn');
-    let loaderTimeout;
-    let submissionTimeout;
-    let loadCheckInterval;
-    let lastIframeUrl = '';
-    let modalOpenTime = null;
-
-    function showModal(url) {
-      // Show loader immediately
-      modalLoader.style.display = 'flex';
-      modal.style.display = 'flex';
-      document.body.style.overflow = 'hidden'; // Prevent background scrolling
-      
-      // Reset loader text and hide status button
-      loaderText.textContent = 'Loading...';
-      statusCheckBtn.style.display = 'none';
-      
-      // Clear any existing timeouts/intervals
-      if (loaderTimeout) {
-        clearTimeout(loaderTimeout);
-        loaderTimeout = null;
-      }
-      if (submissionTimeout) {
-        clearTimeout(submissionTimeout);
-        submissionTimeout = null;
-      }
-      if (loadCheckInterval) {
-        clearInterval(loadCheckInterval);
-        loadCheckInterval = null;
-      }
-      
-      lastIframeUrl = url;
-      
-      // Track when modal was opened
-      modalOpenTime = Date.now();
-      
-      // Set iframe source
-      modalIframe.src = url;
-      
-      // Start periodic check for blocked/stuck iframe
-      let checkCount = 0;
-      loadCheckInterval = setInterval(() => {
-        checkCount++;
-        const timeSinceOpen = Date.now() - modalOpenTime;
-        
-        // After 30 seconds, always show status button (regardless of our loader state)
-        // This handles cases where ClubReady's form shows its own loading spinners
-        if (timeSinceOpen >= 30000) {
-          // Show status button if modal is still open
-          if (modal.style.display === 'flex') {
-            loaderText.textContent = 'The form may be taking longer than expected. If your order was submitted, please check your email for confirmation. You can close this window.';
-            showStatusCheckButton();
-            clearInterval(loadCheckInterval);
-            loadCheckInterval = null;
-          }
-        }
-      }, 1000); // Check every 1 second
-      
-      // Set a timeout that always shows status button after 30 seconds
-      // This ensures users can always close the modal, even if ClubReady's form is stuck
-      loaderTimeout = setTimeout(() => {
-        // Always show status button after 30 seconds if modal is still open
-        if (modal.style.display === 'flex') {
-          loaderText.textContent = 'The form may be taking longer than expected. If your order was submitted, please check your email for confirmation. You can close this window.';
-          showStatusCheckButton();
-          
-          // Clear the interval if timeout fires
-          if (loadCheckInterval) {
-            clearInterval(loadCheckInterval);
-            loadCheckInterval = null;
-          }
-        }
-      }, 30000); // 30 seconds
-    }
-
-    function closeModal() {
-      modal.style.display = 'none';
-      modalIframe.src = ''; // Clear iframe to stop loading
-      document.body.style.overflow = ''; // Restore scrolling
-      modalLoader.style.display = 'none'; // Hide loader
-      loaderText.textContent = 'Loading...';
-      statusCheckBtn.style.display = 'none';
-      
-      if (loaderTimeout) {
-        clearTimeout(loaderTimeout);
-        loaderTimeout = null;
-      }
-      if (submissionTimeout) {
-        clearTimeout(submissionTimeout);
-        submissionTimeout = null;
-      }
-      if (loadCheckInterval) {
-        clearInterval(loadCheckInterval);
-        loadCheckInterval = null;
-      }
-      
-      lastIframeUrl = '';
-      modalOpenTime = null;
-    }
-
-    function showStatusCheckButton() {
-      statusCheckBtn.style.display = 'block';
-    }
-
-    // Enhanced load event handler - fires on every navigation including post-submission
-    modalIframe.addEventListener('load', function() {
-      // Clear initial loader timeout since iframe loaded
-      if (loaderTimeout) {
-        clearTimeout(loaderTimeout);
-        loaderTimeout = null;
-      }
-      
-      // Clear the periodic check interval since iframe loaded
-      if (loadCheckInterval) {
-        clearInterval(loadCheckInterval);
-        loadCheckInterval = null;
-      }
-      
-      // Hide loader after a short delay to ensure content is rendered
-      setTimeout(() => {
-        modalLoader.style.display = 'none';
-        statusCheckBtn.style.display = 'none';
-      }, 500);
-      
-      // Try to detect if we're on a success/confirmation page
-      try {
-        // Check if iframe URL changed (may be blocked by same-origin policy)
-        const currentUrl = modalIframe.src;
-        if (currentUrl !== lastIframeUrl && (currentUrl.includes('success') || currentUrl.includes('confirm'))) {
-          // Likely on success page
-          console.log('Detected potential success page');
-        }
-        lastIframeUrl = currentUrl;
-      } catch (e) {
-        // Cross-origin restriction - can't access iframe.contentWindow
-        // This is expected for ClubReady
-      }
-      
-      // Monitor for stuck loading state after form submission
-      // If loader is still showing after 2 minutes, show user feedback
-      if (submissionTimeout) {
-        clearTimeout(submissionTimeout);
-      }
-      
-      submissionTimeout = setTimeout(() => {
-        // Always show status button after 30 seconds if modal is still open
-        // This handles cases where ClubReady's form processing gets stuck
-        if (modal.style.display === 'flex') {
-          loaderText.textContent = 'Processing may be taking longer than expected. If your order was submitted, please check your email for confirmation.';
-          showStatusCheckButton();
-        }
-      }, 30000); // 30 seconds after load event
-    });
-
-    // Handle iframe load errors
-    modalIframe.addEventListener('error', function() {
-      modalLoader.style.display = 'none';
-      statusCheckBtn.style.display = 'none';
-      
-      if (loaderTimeout) {
-        clearTimeout(loaderTimeout);
-        loaderTimeout = null;
-      }
-      if (submissionTimeout) {
-        clearTimeout(submissionTimeout);
-        submissionTimeout = null;
-      }
-      
-      console.error('Failed to load iframe content');
-      
-      // Show user-friendly error message
-      loaderText.textContent = 'Failed to load form. Please try refreshing or contact support.';
-      showStatusCheckButton();
-    });
-
-    // Refresh button click handler
-    modalRefresh.addEventListener('click', function() {
-      if (!modalIframe.src) return;
-      modalLoader.style.display = 'flex';
-      loaderText.textContent = 'Loading...';
-      statusCheckBtn.style.display = 'none';
-      
-      if (loaderTimeout) {
-        clearTimeout(loaderTimeout);
-      }
-      if (submissionTimeout) {
-        clearTimeout(submissionTimeout);
-      }
-      
-      lastIframeUrl = modalIframe.src;
-      modalIframe.src = modalIframe.src;
-      
-      loaderTimeout = setTimeout(() => {
-        modalLoader.style.display = 'none';
-      }, 30000);
-    });
-
-    // Status check button click handler
-    statusCheckBtn.addEventListener('click', function() {
-      closeModal();
-    });
-
-    // Listen for messages from iframe (if ClubReady supports postMessage)
-    window.addEventListener('message', function(event) {
-      // Verify origin for security
-      if (event.origin.includes('clubready.com')) {
-        if (event.data && event.data.type === 'formSubmitted') {
-          modalLoader.style.display = 'none';
-          statusCheckBtn.style.display = 'none';
-        } else if (event.data && event.data.type === 'formError') {
-          loaderText.textContent = 'An error occurred. Please try again.';
-          showStatusCheckButton();
-        }
-      }
-    });
-
-    // Close modal handlers
-    modalClose.addEventListener('click', closeModal);
-    
-    // Close modal when clicking outside
-    window.addEventListener('click', function(event) {
-      if (event.target === modal) {
-        closeModal();
-      }
-    });
-
-    // Close modal on Escape key
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape' && modal.style.display === 'flex') {
-        closeModal();
-      }
-    });
-
     // Savings Modal functionality
     (function() {
       const savingsModal = document.getElementById('savingsModal');
@@ -520,9 +431,9 @@
         document.getElementById('savings-amount').textContent = `$${savings.toLocaleString()}`;
         document.getElementById('savings-note-text').textContent = "That's like getting " + (monthsFree % 1 === 0 ? monthsFree : monthsFree.toFixed(1)) + " months FREE!";
         
-        // Update enroll button
+        // Update enroll button to open ClubReady directly
         const enrollButton = document.getElementById('savings-enroll-button');
-        enrollButton.setAttribute('data-url', enrollUrl || '#');
+        enrollButton.setAttribute('href', enrollUrl || '#');
         
         // Show modal
         savingsModal.style.display = 'flex';
@@ -559,165 +470,143 @@
           closeSavingsModal();
         }
       });
-      
-      // Handle enroll button click in savings modal
-      const savingsEnrollButton = document.getElementById('savings-enroll-button');
-      savingsEnrollButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        const url = this.getAttribute('data-url');
-        if (url && url !== '#') {
-          closeSavingsModal();
-          showModal(url);
-        }
-      });
     })();
 
-    // Promo code copy interaction
+    // Sticky tabs on scroll (desktop only)
     (function() {
-      const promoCards = document.querySelectorAll('.promo-copy-card');
-      if (!promoCards.length) return;
+      const pricingTabs = document.querySelector('.pricing-tabs');
+      if (!pricingTabs || !window.matchMedia) return;
 
-      async function writeToClipboard(text) {
-        if (navigator.clipboard && window.isSecureContext) {
-          await navigator.clipboard.writeText(text);
+      const desktopQuery = window.matchMedia('(min-width: 1025px)');
+
+      function handleScroll() {
+        if (!desktopQuery.matches) {
+          pricingTabs.classList.remove('scrolled');
           return;
         }
 
-        const textarea = document.createElement('textarea');
-        textarea.value = text;
-        textarea.style.position = 'fixed';
-        textarea.style.opacity = '0';
-        textarea.style.left = '-9999px';
-        document.body.appendChild(textarea);
-        textarea.focus();
-        textarea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textarea);
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        pricingTabs.classList.toggle('scrolled', scrollTop > 100);
       }
 
-      promoCards.forEach(card => {
-        const code = card.getAttribute('data-copy-code') || '';
-        const feedback = card.querySelector('.hero-copy-feedback');
-        let resetTimer;
-
-        const setState = (state, message) => {
-          card.classList.remove('is-copying', 'is-copied', 'is-copy-error');
-          if (state) card.classList.add(state);
-          if (feedback) feedback.textContent = message || '';
-        };
-
-        const copyCode = async () => {
-          if (!code) return;
-          clearTimeout(resetTimer);
-          setState('is-copying', 'Copying code...');
-
-          try {
-            await writeToClipboard(code);
-            setState('is-copied', 'Copied! Paste FTW at checkout.');
-            resetTimer = setTimeout(() => setState('', ''), 1800);
-          } catch (error) {
-            setState('is-copy-error', 'Copy failed. Please copy FTW manually.');
-            resetTimer = setTimeout(() => setState('', ''), 2200);
-          }
-        };
-
-        card.addEventListener('click', copyCode);
-        card.addEventListener('keydown', function(event) {
-          if (event.key === 'Enter' || event.key === ' ') {
-            event.preventDefault();
-            copyCode();
-          }
-        });
-      });
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      desktopQuery.addEventListener('change', handleScroll);
+      handleScroll();
     })();
 
-    // Add click handlers for ENROLL buttons
-    document.querySelectorAll('.enroll-button').forEach(button => {
-      button.addEventListener('click', function(e) {
-        e.preventDefault();
-        const url = this.getAttribute('data-url');
-        if (url && url !== '#' && !url.startsWith('PLACEHOLDER')) {
-          showModal(url);
-        } else {
-          console.log('Placeholder URL for:', this.getAttribute('data-url'));
-          alert('Enrollment URL will be added soon. Please contact the gym for enrollment options.');
-        }
-      });
-    });
-
-    // Sticky tabs on scroll
+    // Promo code copy buttons
     (function() {
-      const pricingTabs = document.querySelector('.pricing-tabs');
-      if (!pricingTabs) return;
-      let lastScrollTop = 0;
-      
-      function handleScroll() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > 100) {
-          pricingTabs.classList.add('scrolled');
-        } else {
-          pricingTabs.classList.remove('scrolled');
-        }
-        
-        lastScrollTop = scrollTop;
+      const promoBlocks = document.querySelectorAll('.option-promo');
+      if (!promoBlocks.length) return;
+
+      function fallbackCopyText(text) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.setAttribute('readonly', '');
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = '0';
+        document.body.appendChild(textArea);
+        textArea.select();
+        const ok = document.execCommand('copy');
+        document.body.removeChild(textArea);
+        return ok;
       }
-      
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      handleScroll(); // Check initial state
+
+      promoBlocks.forEach(promo => {
+        const copyButton = promo.querySelector('.promo-copy-button');
+        const promoValue = promo.querySelector('.option-promo-value');
+        if (!copyButton || !promoValue) return;
+
+        let copyResetTimeout = null;
+
+        function setCopiedState() {
+          copyButton.classList.add('copied');
+          const copyText = copyButton.querySelector('.promo-copy-text');
+          if (copyText) copyText.textContent = 'Copied';
+          if (copyResetTimeout) clearTimeout(copyResetTimeout);
+          copyResetTimeout = setTimeout(() => {
+            copyButton.classList.remove('copied');
+            if (copyText) copyText.textContent = 'Copy';
+          }, 1800);
+        }
+
+        async function copyPromoCode() {
+          const code = (promo.getAttribute('data-promo-code') || promoValue.textContent).trim();
+          try {
+            if (navigator.clipboard && window.isSecureContext) {
+              await navigator.clipboard.writeText(code);
+            } else if (!fallbackCopyText(code)) {
+              throw new Error('Clipboard copy failed');
+            }
+            setCopiedState();
+          } catch (err) {
+            alert('Unable to copy automatically. Promo code: ' + code);
+          }
+        }
+
+        copyButton.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          copyPromoCode();
+        });
+      });
     })();
 
     // Pricing Filter Tabs functionality
     (function() {
-      const tabs = document.querySelectorAll('.pricing-tab');
+      const tabs = document.querySelectorAll('.pricing-tab, .pricing-mobile-option');
       const tiers = document.querySelectorAll('.pricing-tier');
       const pricingGrid = document.querySelector('.pricing-grid');
+      const limitedOffer = document.getElementById('limitedOfferBanner');
+      const guestNote = document.getElementById('guestNote');
       if (!tabs.length || !tiers.length || !pricingGrid) return;
-      
+
+      function applyFilter(filter) {
+        tabs.forEach(tab => {
+          const isActive = tab.getAttribute('data-filter') === filter;
+          tab.classList.toggle('active', isActive);
+          tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+
+        pricingGrid.classList.add('filtered');
+
+        if (limitedOffer) {
+          limitedOffer.hidden = filter !== 'pif';
+        }
+
+        if (guestNote) {
+          guestNote.hidden = filter === 'intro';
+        }
+
+        tiers.forEach(tier => {
+          const tierType = tier.getAttribute('data-tier');
+          if (tierType === filter) {
+            tier.classList.add('filtered-tier');
+            tier.style.display = 'grid';
+            setTimeout(() => {
+              tier.style.opacity = '1';
+              tier.style.transform = 'translateY(0)';
+            }, 10);
+          } else {
+            tier.classList.remove('filtered-tier');
+            tier.style.opacity = '0';
+            tier.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              if (tier.getAttribute('data-tier') !== filter) {
+                tier.style.display = 'none';
+              }
+            }, 300);
+          }
+        });
+      }
+
       tabs.forEach(tab => {
         tab.addEventListener('click', function() {
-          const filter = this.getAttribute('data-filter');
-          
-          // Update active tab
-          tabs.forEach(t => t.classList.remove('active'));
-          this.classList.add('active');
-          
-          // Update grid layout class
-          if (filter === 'all') {
-            pricingGrid.classList.remove('filtered');
-          } else {
-            pricingGrid.classList.add('filtered');
-          }
-          
-          // Filter pricing tiers
-          tiers.forEach(tier => {
-            const tierType = tier.getAttribute('data-tier');
-            
-            if (filter === 'all' || tierType === filter) {
-              // Add filtered class if not showing all
-              if (filter !== 'all') {
-                tier.classList.add('filtered-tier');
-                tier.style.display = 'grid';
-              } else {
-                tier.classList.remove('filtered-tier');
-                tier.style.display = 'block';
-              }
-              // Trigger animation
-              setTimeout(() => {
-                tier.style.opacity = '1';
-                tier.style.transform = 'translateY(0)';
-              }, 10);
-            } else {
-              tier.classList.remove('filtered-tier');
-              tier.style.opacity = '0';
-              tier.style.transform = 'translateY(20px)';
-              setTimeout(() => {
-                tier.style.display = 'none';
-              }, 300);
-            }
-          });
+          applyFilter(this.getAttribute('data-filter'));
         });
       });
+
+      applyFilter('intro');
     })();
   </script>
 </body>
