@@ -16,7 +16,9 @@
   <div class="page-atmosphere" aria-hidden="true"></div>
   <div class="container">
     <div class="logo-container">
-      <img src="images/9round-kickboxing-logo.png" alt="9Round Kickboxing Fitness" class="logo">
+      <a href="#intro" class="logo-link" aria-label="Go to Intro Offers">
+        <img src="images/9round-kickboxing-logo.png" alt="9Round Kickboxing Fitness" class="logo">
+      </a>
     </div>
 
     <div class="pricing-tabs-wrap">
@@ -164,7 +166,7 @@
 
         <div class="pricing-option pif-option pif-option-12mo">
           <h3 class="option-title">12-Month PIF</h3>
-          <div class="highlight-badge" data-pif="1692" data-monthly="228" data-tier="Unlimited" data-enroll-url="https://app.clubready.com/JoinUs/9261/585792" data-months="12">25% OFF</div>
+          <div class="highlight-badge discount-badge" data-pif="1692" data-monthly="228" data-tier="Unlimited" data-enroll-url="https://app.clubready.com/JoinUs/9261/585792" data-months="12">25% OFF</div>
           <div class="price-original">$2256</div>
           <div class="price">$1692</div>
           <div class="price-per-session">$4.70 per session</div>
@@ -178,7 +180,7 @@
 
         <div class="pricing-option pif-option">
           <h3 class="option-title">6-Month PIF</h3>
-          <div class="highlight-badge" data-pif="936" data-monthly="228" data-tier="Unlimited" data-enroll-url="https://app.clubready.com/JoinUs/9261/585791" data-months="6">25% OFF</div>
+          <div class="highlight-badge discount-badge" data-pif="936" data-monthly="228" data-tier="Unlimited" data-enroll-url="https://app.clubready.com/JoinUs/9261/585791" data-months="6">25% OFF</div>
           <div class="price-original">$1248</div>
           <div class="price">$936</div>
           <div class="price-per-session">$5.20 per session</div>
@@ -192,7 +194,7 @@
 
         <div class="pricing-option pif-option pif-option-3mo option-span-center">
           <h3 class="option-title">3-Month PIF</h3>
-          <div class="highlight-badge" data-pif="513" data-monthly="228" data-tier="Unlimited" data-enroll-url="https://app.clubready.com/JoinUs/9261/585790" data-months="3">25% OFF</div>
+          <div class="highlight-badge discount-badge" data-pif="513" data-monthly="228" data-tier="Unlimited" data-enroll-url="https://app.clubready.com/JoinUs/9261/585790" data-months="3">25% OFF</div>
           <div class="price-original">$684</div>
           <div class="price">$513</div>
           <div class="price-per-session">$5.70 per session</div>
@@ -275,8 +277,10 @@
         <div class="pricing-option monthly-option">
           <h3 class="option-title">Unlimited</h3>
           <div class="option-promo" data-promo-code="UNLIMITED">
-            <span class="option-promo-label">Promo Code</span>
+            <div class="option-promo-main">
+              <span class="option-promo-label">Promo Code</span>
             <span class="option-promo-value">UNLIMITED</span>
+            </div>
             <button type="button" class="promo-copy-button" aria-label="Copy promo code UNLIMITED" title="Copy promo code">
               <svg class="promo-copy-icon" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M9 9h11v11H9z"></path>
@@ -299,8 +303,10 @@
         <div class="pricing-option monthly-option">
           <h3 class="option-title">8 Sessions /Mo.</h3>
           <div class="option-promo" data-promo-code="LIMITED">
-            <span class="option-promo-label">Promo Code</span>
+            <div class="option-promo-main">
+              <span class="option-promo-label">Promo Code</span>
             <span class="option-promo-value">LIMITED</span>
+            </div>
             <button type="button" class="promo-copy-button" aria-label="Copy promo code LIMITED" title="Copy promo code">
               <svg class="promo-copy-icon" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M9 9h11v11H9z"></path>
@@ -323,8 +329,10 @@
         <div class="pricing-option monthly-option option-span-center">
           <h3 class="option-title">4 Sessions /Mo.</h3>
           <div class="option-promo" data-promo-code="LIMITED">
-            <span class="option-promo-label">Promo Code</span>
+            <div class="option-promo-main">
+              <span class="option-promo-label">Promo Code</span>
             <span class="option-promo-value">LIMITED</span>
+            </div>
             <button type="button" class="promo-copy-button" aria-label="Copy promo code LIMITED" title="Copy promo code">
               <svg class="promo-copy-icon" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M9 9h11v11H9z"></path>
@@ -472,25 +480,28 @@
       });
     })();
 
-    // Sticky tabs on scroll (desktop only)
+    // Sticky tabs on desktop scroll
     (function() {
-      const pricingTabs = document.querySelector('.pricing-tabs');
-      if (!pricingTabs || !window.matchMedia) return;
+      const pricingTabsWrap = document.querySelector('.pricing-tabs-wrap');
+      if (!pricingTabsWrap) return;
 
       const desktopQuery = window.matchMedia('(min-width: 1025px)');
 
       function handleScroll() {
         if (!desktopQuery.matches) {
-          pricingTabs.classList.remove('scrolled');
+          pricingTabsWrap.classList.remove('scrolled');
           return;
         }
-
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        pricingTabs.classList.toggle('scrolled', scrollTop > 100);
+        pricingTabsWrap.classList.toggle('scrolled', scrollTop > 40);
       }
 
       window.addEventListener('scroll', handleScroll, { passive: true });
-      desktopQuery.addEventListener('change', handleScroll);
+      if (desktopQuery.addEventListener) {
+        desktopQuery.addEventListener('change', handleScroll);
+      } else if (desktopQuery.addListener) {
+        desktopQuery.addListener(handleScroll);
+      }
       handleScroll();
     })();
 
@@ -605,6 +616,21 @@
           applyFilter(this.getAttribute('data-filter'));
         });
       });
+
+      const logoLink = document.querySelector('.logo-link');
+      if (logoLink) {
+        logoLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          applyFilter('intro');
+          const tabsWrap = document.querySelector('.pricing-tabs-wrap') || document.querySelector('.pricing-mobile-nav');
+          if (tabsWrap) {
+            tabsWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+          if (history.replaceState) {
+            history.replaceState(null, '', '#intro');
+          }
+        });
+      }
 
       applyFilter('intro');
     })();

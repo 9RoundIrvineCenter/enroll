@@ -9,8 +9,8 @@
   --bg-primary: #f7f4f2;
   --bg-secondary: #ffffff;
   --text-primary: #171417;
-  --text-secondary: #5f575a;
-  --text-tertiary: #8a8084;
+  --text-secondary: #4f474a;
+  --text-tertiary: #6f6569;
   --border-color: #e7dfdf;
   --border-light: #f1eaea;
   --accent-red: #C80F2E;
@@ -32,6 +32,19 @@
   --shadow-xl: 0 30px 60px -20px rgba(50, 20, 24, 0.35);
   --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
   --font-body: "Manrope", "Segoe UI", sans-serif;
+  /* Accessible type scale — body copy stays at or above 16px */
+  --text-xs: 13px;
+  --text-sm: 15px;
+  --text-md: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 32px;
+  --text-display: clamp(38px, 5.5vw, 58px);
+  --text-price: clamp(48px, 6vw, 60px);
+  --leading-tight: 1.25;
+  --leading-snug: 1.4;
+  --leading-body: 1.7;
 }
 
 [data-theme="dark"] {
@@ -66,7 +79,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: 18px;
   color-scheme: light;
 }
 
@@ -74,7 +87,8 @@ body {
   font-family: var(--font-body);
   background: var(--bg-primary);
   color: var(--text-primary);
-  line-height: 1.7;
+  font-size: var(--text-md);
+  line-height: var(--leading-body);
   padding: 0;
   position: relative;
   min-height: 100vh;
@@ -116,45 +130,38 @@ body {
   text-align: center;
   margin-bottom: 28px;
   animation: fadeInDown 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  padding-bottom: 0;
+}
+
+.logo-container::after {
+  display: none;
+}
+
+.logo-link {
+  display: inline-block;
+  line-height: 0;
+  text-decoration: none;
 }
 
 .logo {
   height: 92px;
   width: auto;
   max-width: min(420px, 88vw);
+  filter: none;
   display: block;
   margin: 0 auto;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.brand-kicker {
-  font-family: var(--font-display);
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--accent-red);
-  margin-bottom: 8px;
+.logo-link:hover .logo {
+  opacity: 0.9;
 }
 
-.page-title {
-  font-family: var(--font-display);
-  font-size: clamp(34px, 5vw, 52px);
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  line-height: 1;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  color: var(--text-primary);
-}
-
-.page-subtitle {
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--text-secondary);
-  max-width: 420px;
-  margin: 0 auto;
-  line-height: 1.5;
+.logo-link:focus-visible {
+  outline: 3px solid var(--accent-red);
+  outline-offset: 6px;
+  border-radius: 8px;
 }
 
 /* Premium Benefits Section */
@@ -196,7 +203,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
-  font-size: 14px;
+  font-size: var(--text-md);
   color: var(--text-primary);
   margin: 0;
   padding: 0;
@@ -204,10 +211,10 @@ body {
 }
 
 .benefits-list li {
-  padding: 10px 14px 10px 38px;
+  padding: 12px 16px 12px 42px;
   margin: 0;
   position: relative;
-  line-height: 1.4;
+  line-height: var(--leading-snug);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
   display: flex;
   align-items: center;
@@ -230,14 +237,14 @@ body {
   transform: translateY(-50%);
   color: #ffffff;
   font-weight: 700;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--accent-red);
   border-radius: 50%;
-  font-size: 11px;
+  font-size: var(--text-xs);
   flex-shrink: 0;
 }
 
@@ -246,17 +253,17 @@ body {
 }
 
 .benefits-list li.no-checkmark {
+  padding: 4px 8px;
   width: 100%;
   max-width: 720px;
   justify-content: center;
-  padding: 4px 8px;
-  font-size: 12px;
+  border-radius: 0;
+  font-size: var(--text-sm);
   font-weight: 700;
   letter-spacing: 0.2px;
   background: transparent;
   border: none;
   box-shadow: none;
-  border-radius: 0;
   color: var(--text-secondary);
 }
 
@@ -271,19 +278,10 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  margin: 0 auto 36px;
+  margin: 0 auto 28px;
   width: 100%;
   max-width: 1100px;
-  position: relative;
-  z-index: 100;
   animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
-}
-
-@media (min-width: 1025px) {
-  .pricing-tabs-wrap {
-    position: sticky;
-    top: 12px;
-  }
 }
 
 .pricing-tabs {
@@ -293,7 +291,8 @@ body {
   margin: 0;
   padding: 8px;
   position: relative;
-  background: rgba(255, 255, 255, 0.82);
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(16px) saturate(150%);
   -webkit-backdrop-filter: blur(16px) saturate(150%);
   border: 1px solid var(--border-color);
@@ -307,19 +306,40 @@ body {
   display: none;
 }
 
-.pricing-tabs.scrolled {
-  box-shadow: var(--shadow-lg);
-  background: rgba(255, 255, 255, 0.94);
+@media (min-width: 1025px) {
+  .pricing-tabs-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 12px 0 14px;
+    /* Transform from fadeInUp breaks sticky; clear it on desktop. */
+    animation: none;
+    transform: none;
+    background:
+      linear-gradient(180deg, rgba(247, 244, 242, 0.96) 0%, rgba(247, 244, 242, 0.9) 70%, rgba(247, 244, 242, 0) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .pricing-tabs-wrap.scrolled {
+    background:
+      linear-gradient(180deg, rgba(247, 244, 242, 0.98) 0%, rgba(247, 244, 242, 0.95) 80%, rgba(247, 244, 242, 0.85) 100%);
+  }
+
+  .pricing-tabs-wrap.scrolled .pricing-tabs {
+    box-shadow: var(--shadow-lg);
+    background: rgba(255, 255, 255, 0.98);
+  }
 }
 
 .pricing-tab {
-  padding: 16px 18px;
+  padding: 18px 18px;
   background: transparent;
   border: 1px solid transparent;
   border-radius: 14px;
   color: var(--text-secondary);
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: var(--text-xl);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -329,12 +349,13 @@ body {
   overflow: hidden;
   min-width: 0;
   width: 100%;
+  min-height: 72px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 6px;
 }
 
 .tab-icon {
@@ -351,13 +372,13 @@ body {
 .tab-desc {
   display: block;
   font-family: var(--font-body);
-  font-size: 12px;
+  font-size: var(--text-sm);
   font-weight: 500;
   letter-spacing: 0.1px;
   text-transform: none;
-  line-height: 1.3;
+  line-height: var(--leading-snug);
   color: inherit;
-  opacity: 0.78;
+  opacity: 0.85;
   position: relative;
   z-index: 1;
 }
@@ -552,17 +573,18 @@ body {
 
 .tier-title {
   font-family: var(--font-display);
-  font-size: 28px;
+  font-size: var(--text-3xl);
   font-weight: 800;
   color: var(--accent-red);
   text-align: center;
   margin-bottom: 28px;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.2px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   padding-bottom: 16px;
   white-space: nowrap;
+  line-height: var(--leading-tight);
 }
 
 .tier-title::after {
@@ -654,14 +676,15 @@ body {
 
 .option-title {
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: var(--text-xl);
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 18px;
   text-align: center;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-transform: uppercase;
+  line-height: var(--leading-tight);
 }
 
 .pricing-option:hover .option-title {
@@ -672,12 +695,12 @@ body {
   display: block;
   background: linear-gradient(135deg, var(--accent-red) 0%, #ff4d6d 100%);
   color: #ffffff;
-  font-size: 10px;
+  font-size: var(--text-xs);
   font-weight: 800;
-  padding: 8px 16px;
+  padding: 10px 16px;
   border-radius: 24px;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.2px;
   box-shadow: 0 4px 12px rgba(200, 15, 46, 0.3), 0 2px 4px rgba(200, 15, 46, 0.2);
   white-space: nowrap;
   position: relative;
@@ -687,18 +710,9 @@ body {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.pricing-tier[data-tier="pif"] .highlight-badge {
-  background: linear-gradient(135deg, #1f9d55 0%, #2ecc71 100%);
-  box-shadow: 0 4px 12px rgba(31, 157, 85, 0.3), 0 2px 4px rgba(31, 157, 85, 0.2);
-}
-
 .highlight-badge:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 16px rgba(200, 15, 46, 0.4), 0 3px 6px rgba(200, 15, 46, 0.3);
-}
-
-.pricing-tier[data-tier="pif"] .highlight-badge:hover {
-  box-shadow: 0 6px 16px rgba(31, 157, 85, 0.4), 0 3px 6px rgba(31, 157, 85, 0.3);
 }
 
 .highlight-badge:focus {
@@ -707,9 +721,22 @@ body {
   border-radius: 24px;
 }
 
+.highlight-badge.discount-badge {
+  background: linear-gradient(135deg, #148f3a 0%, #1fad4d 100%);
+  box-shadow: 0 4px 12px rgba(20, 143, 58, 0.3), 0 2px 4px rgba(20, 143, 58, 0.2);
+}
+
+.highlight-badge.discount-badge:hover {
+  box-shadow: 0 6px 16px rgba(20, 143, 58, 0.4), 0 3px 6px rgba(20, 143, 58, 0.3);
+}
+
+.highlight-badge.discount-badge:focus {
+  outline-color: #148f3a;
+}
+
 .price {
   font-family: var(--font-display);
-  font-size: 52px;
+  font-size: var(--text-price);
   font-weight: 800;
   color: var(--text-primary);
   text-align: center;
@@ -723,7 +750,7 @@ body {
 }
 
 .price-original {
-  font-size: 18px;
+  font-size: var(--text-lg);
   font-weight: 600;
   color: var(--text-tertiary);
   text-align: center;
@@ -733,7 +760,7 @@ body {
 }
 
 .price-after {
-  font-size: 18px;
+  font-size: var(--text-lg);
   font-weight: 800;
   color: var(--text-primary);
   text-align: center;
@@ -786,12 +813,12 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 92px;
-  padding: 12px 14px;
+  min-width: 100px;
+  padding: 14px 16px;
   border-radius: 14px;
   background: #ffffff;
   color: #1f9d55;
-  font-size: 18px;
+  font-size: var(--text-xl);
   font-weight: 900;
   letter-spacing: 0.4px;
   line-height: 1;
@@ -809,19 +836,19 @@ body {
 }
 
 .limited-offer-title {
-  font-size: 15px;
+  font-size: var(--text-md);
   font-weight: 800;
-  letter-spacing: 1.4px;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .limited-offer-subtitle {
-  font-size: 12px;
+  font-size: var(--text-sm);
   font-weight: 500;
   letter-spacing: 0.2px;
-  color: rgba(255, 255, 255, 0.82);
-  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: var(--leading-snug);
 }
 
 .limited-offer-banner[hidden] {
@@ -860,12 +887,12 @@ body {
 
 .option-features li {
   position: relative;
-  padding-left: 18px;
-  font-size: 13px;
+  padding-left: 20px;
+  font-size: var(--text-sm);
   font-weight: 600;
   color: var(--text-secondary);
   text-align: left;
-  line-height: 1.4;
+  line-height: var(--leading-snug);
 }
 
 .option-features li::before {
@@ -880,16 +907,14 @@ body {
 }
 
 .option-promo {
-  display: inline-grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto auto;
+  display: inline-flex;
   align-items: center;
-  column-gap: 10px;
-  row-gap: 2px;
+  justify-content: center;
+  gap: 10px;
   width: fit-content;
   max-width: 100%;
   margin: 0 auto 16px;
-  padding: 8px 12px;
+  padding: 10px 14px;
   border-radius: 16px;
   border: 1px solid rgba(37, 99, 235, 0.35);
   background: rgba(37, 99, 235, 0.1);
@@ -897,42 +922,44 @@ body {
   z-index: 2;
 }
 
+.option-promo-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  min-width: 0;
+}
+
 .option-promo-label {
-  grid-column: 1;
-  grid-row: 1;
-  font-size: 10px;
+  font-size: var(--text-xs);
   font-weight: 700;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  color: #3b5b9a;
+  color: var(--text-secondary);
   white-space: nowrap;
-  line-height: 1.2;
+  line-height: 1;
 }
 
 .option-promo-value {
-  grid-column: 1;
-  grid-row: 2;
-  font-size: 13px;
+  font-size: var(--text-sm);
   line-height: 1;
   font-weight: 900;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   color: #1d4ed8;
   white-space: nowrap;
 }
 
 .promo-copy-button {
-  grid-column: 2;
-  grid-row: 1 / -1;
-  align-self: center;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   border: 1px solid rgba(37, 99, 235, 0.35);
   background: var(--bg-primary);
   color: #1d4ed8;
   border-radius: 999px;
-  padding: 5px 10px;
-  font-size: 11px;
+  padding: 8px 12px;
+  min-height: 36px;
+  font-size: var(--text-xs);
   font-weight: 700;
   letter-spacing: 0.3px;
   cursor: pointer;
@@ -944,7 +971,7 @@ body {
 
 .promo-copy-button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.18);
+  box-shadow: var(--shadow-sm);
 }
 
 .promo-copy-button:focus {
@@ -975,7 +1002,7 @@ body {
 .intro-gear-title {
   margin: 0 0 22px;
   font-family: var(--font-display);
-  font-size: 22px;
+  font-size: var(--text-2xl);
   font-weight: 800;
   font-style: italic;
   letter-spacing: 1.4px;
@@ -1002,23 +1029,32 @@ body {
 
 .intro-gear-price {
   font-family: var(--font-display);
-  font-size: 32px;
+  font-size: var(--text-3xl);
   font-weight: 800;
   line-height: 1;
   color: var(--accent-red);
 }
 
 .intro-gear-total .intro-gear-price {
-  font-size: 40px;
+  font-size: clamp(36px, 4vw, 40px);
 }
 
 .intro-gear-label {
   font-family: var(--font-display);
-  font-size: 14px;
+  font-size: var(--text-sm);
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--text-primary);
+}
+
+
+.highlight-badge.best-value-badge {
+  cursor: default;
+}
+
+.highlight-badge.best-value-badge:hover {
+  transform: none;
 }
 
 .pricing-option:hover .price {
@@ -1031,7 +1067,7 @@ body {
 }
 
 .price-period {
-  font-size: 14px;
+  font-size: var(--text-md);
   font-weight: 700;
   color: var(--text-secondary);
   margin-left: 6px;
@@ -1040,7 +1076,7 @@ body {
 }
 
 .price-per-session {
-  font-size: 12px;
+  font-size: var(--text-sm);
   font-weight: 500;
   color: var(--text-tertiary);
   text-align: center;
@@ -1050,7 +1086,7 @@ body {
 }
 
 .price-note {
-  font-size: 13px;
+  font-size: var(--text-sm);
   color: var(--text-secondary);
   text-align: center;
   margin-bottom: 8px;
@@ -1059,11 +1095,11 @@ body {
 }
 
 .option-note {
-  font-size: 13px;
+  font-size: var(--text-sm);
   color: var(--text-secondary);
   text-align: center;
   margin-bottom: 8px;
-  line-height: 1.6;
+  line-height: var(--leading-body);
   font-weight: 400;
 }
 
@@ -1077,11 +1113,12 @@ body {
   padding: 18px 28px;
   border-radius: 12px;
   text-decoration: none;
-  font-size: 14px;
+  font-size: var(--text-md);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1.6px;
   margin-top: 32px;
+  min-height: 52px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   position: relative;
@@ -1147,11 +1184,12 @@ body {
   border-radius: 14px;
   text-decoration: none;
   font-family: var(--font-display);
-  font-size: 16px;
+  font-size: var(--text-lg);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1.8px;
+  letter-spacing: 1.5px;
   margin-top: 24px;
+  min-height: 52px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   position: relative;
@@ -1206,9 +1244,13 @@ body {
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
 }
 
+.guest-note[hidden] {
+  display: none !important;
+}
+
 .guest-note {
   text-align: center;
-  font-size: 13px;
+  font-size: var(--text-md);
   color: var(--text-secondary);
   margin-top: 0;
   margin-bottom: 20px;
@@ -1225,10 +1267,6 @@ body {
   box-shadow: var(--shadow-sm);
 }
 
-.guest-note[hidden] {
-  display: none !important;
-}
-
 [data-theme="dark"] .guest-note {
   background: var(--bg-secondary);
   border-left-color: var(--accent-red);
@@ -1241,7 +1279,7 @@ body {
 
 .referral-note {
   text-align: center;
-  font-size: 13px;
+  font-size: var(--text-md);
   color: var(--text-secondary);
   margin-top: 0;
   margin-bottom: 40px;
@@ -1288,26 +1326,27 @@ footer {
 
 .footer-content {
   text-align: center;
-  font-size: 13px;
+  font-size: var(--text-sm);
   color: var(--text-secondary);
   transition: color 0.3s ease;
   max-width: 600px;
   margin: 0 auto;
+  line-height: var(--leading-body);
 }
 
 .footer-content p {
-  margin: 10px 0;
+  margin: 12px 0;
 }
 
 .copyright {
-  font-size: 12px;
+  font-size: var(--text-sm);
   color: var(--text-tertiary);
   font-weight: 500;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.4px;
 }
 
 .contact-info {
-  font-size: 14px;
+  font-size: var(--text-md);
   font-weight: 500;
 }
 
@@ -1419,14 +1458,14 @@ footer {
 }
 
 .modal-title {
-  font-size: 20px;
+  font-size: var(--text-xl);
   font-weight: 900;
   color: #ff4d6d;
   margin: 0;
   padding: 0;
-  line-height: 1.2;
+  line-height: 1.25;
   transition: color 0.3s ease;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   display: inline-block;
 }
@@ -1464,8 +1503,9 @@ footer {
 .modal-refresh {
   background: none;
   border: 1px solid #374151;
-  padding: 6px 12px;
-  height: 32px;
+  padding: 8px 14px;
+  min-height: 40px;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1475,18 +1515,18 @@ footer {
   color: #d1d5db;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  font-size: 13px;
+  font-size: var(--text-sm);
   line-height: 1;
   white-space: nowrap;
 }
 
 .refresh-icon {
-  font-size: 16px;
+  font-size: var(--text-lg);
   line-height: 1;
 }
 
 .refresh-text {
-  font-size: 13px;
+  font-size: var(--text-sm);
   font-weight: 500;
   letter-spacing: 0.3px;
 }
@@ -1634,17 +1674,17 @@ footer {
 }
 
 .modal-overlay-address {
-  font-size: 11px;
+  font-size: var(--text-xs);
   color: #d1d5db;
-  line-height: 1.3;
+  line-height: 1.4;
   transition: color 0.3s ease;
 }
 
 .modal-overlay-phone {
-  font-size: 11px;
+  font-size: var(--text-xs);
   color: #ff4d6d;
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.4;
   transition: color 0.3s ease, opacity 0.3s ease;
   text-decoration: none;
   display: inline-block;
@@ -1706,20 +1746,20 @@ footer {
 }
 
 .savings-membership-title {
-  font-size: 22px;
+  font-size: var(--text-2xl);
   font-weight: 900;
   color: var(--accent-red);
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   margin-bottom: 8px;
 }
 
 .savings-membership-subtitle {
-  font-size: 14px;
+  font-size: var(--text-md);
   font-weight: 600;
   color: var(--text-secondary);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
 }
 
 .savings-line {
@@ -1730,7 +1770,7 @@ footer {
   padding: 20px 24px;
   background: var(--bg-secondary);
   border-radius: 12px;
-  font-size: 15px;
+  font-size: var(--text-md);
   color: var(--text-primary);
   border: 1px solid var(--border-color);
 }
@@ -1742,7 +1782,7 @@ footer {
 
 .savings-line strong {
   font-weight: 700;
-  font-size: 18px;
+  font-size: var(--text-lg);
   color: var(--text-primary);
 }
 
@@ -1752,29 +1792,30 @@ footer {
   align-items: center;
   margin-top: 28px;
   padding: 24px;
-  background: linear-gradient(135deg, var(--accent-red-bg) 0%, var(--bg-primary) 100%);
+  background: linear-gradient(135deg, rgba(20, 143, 58, 0.1) 0%, var(--bg-primary) 100%);
   border-radius: 16px;
-  border: 2px solid var(--accent-red);
-  font-size: 18px;
+  border: 2px solid #148f3a;
+  font-size: var(--text-lg);
   font-weight: 700;
-  color: var(--text-primary);
+  color: #148f3a;
 }
 
 .savings-total span {
   font-weight: 700;
+  color: #148f3a;
 }
 
 .savings-total strong {
   font-weight: 900;
   font-size: 28px;
-  color: var(--accent-red);
+  color: #148f3a;
   letter-spacing: -1px;
 }
 
 .savings-note {
   margin-top: 24px;
   margin-bottom: 32px;
-  font-size: 13px;
+  font-size: var(--text-sm);
   color: var(--text-secondary);
   font-style: italic;
   font-weight: 500;
@@ -1840,62 +1881,71 @@ footer {
   }
 
   .logo-container {
-    margin-bottom: 28px;
-    padding-bottom: 24px;
+    margin-bottom: 18px;
+    padding-bottom: 0;
   }
 
   .logo {
-    height: 64px;
-    margin-bottom: 14px;
-  }
-
-  .brand-kicker {
-    font-size: 13px;
-    letter-spacing: 2.4px;
-  }
-
-  .page-title {
-    font-size: 34px;
-  }
-
-  .page-subtitle {
-    font-size: 14px;
+    height: 58px;
+    margin-bottom: 0;
   }
 
   .benefits-section {
     padding: 0;
-    margin-bottom: 0;
+    margin-bottom: 24px;
     margin-top: 0;
     border-radius: 0;
+  }
+
+
+  .benefits-list {
+    font-size: var(--text-md);
+    gap: 10px;
+  }
+
+  .benefits-list li {
+    padding: 12px 14px 12px 40px;
+    display: flex;
+    align-items: center;
+  }
+
+  .benefits-list li:before {
+    width: 22px;
+    height: 22px;
+    font-size: var(--text-xs);
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .benefits-list li.no-checkmark {
+    padding: 14px 16px;
+    font-size: var(--text-sm);
   }
 
   .tier-benefits {
     margin: 0 0 4px;
   }
 
-  .benefits-list {
-    font-size: 13px;
-    gap: 10px;
+  .intro-gear {
+    padding-top: 24px;
   }
 
-  .benefits-list li {
-    padding: 9px 12px 9px 34px;
-    display: flex;
-    align-items: center;
+  .intro-gear-title {
+    font-size: var(--text-xl);
+    margin-bottom: 18px;
   }
 
-  .benefits-list li:before {
-    width: 18px;
-    height: 18px;
-    font-size: 10px;
-    left: 8px;
-    top: 50%;
-    transform: translateY(-50%);
+  .intro-gear-items {
+    gap: 28px;
   }
 
-  .benefits-list li.no-checkmark {
-    padding: 12px 14px;
-    font-size: 11px;
+  .intro-gear-price {
+    font-size: var(--text-2xl);
+  }
+
+  .intro-gear-total .intro-gear-price {
+    font-size: 34px;
   }
 
   .pricing-tabs-wrap {
@@ -1904,7 +1954,7 @@ footer {
 
   .pricing-mobile-nav {
     display: block;
-    margin: 0 auto 28px;
+    margin: 0 auto 20px;
     max-width: 560px;
     width: 100%;
     animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
@@ -1920,7 +1970,8 @@ footer {
     align-items: center;
     gap: 14px;
     width: 100%;
-    padding: 16px 16px;
+    padding: 18px 16px;
+    min-height: 72px;
     border-radius: 16px;
     border: 1px solid var(--border-color);
     background: var(--bg-secondary);
@@ -1965,18 +2016,18 @@ footer {
 
   .pricing-mobile-option-title {
     font-family: var(--font-display);
-    font-size: 18px;
+    font-size: var(--text-xl);
     font-weight: 800;
     letter-spacing: 0.6px;
-    line-height: 1.15;
+    line-height: 1.2;
     text-transform: uppercase;
   }
 
   .pricing-mobile-option-desc {
-    font-size: 12px;
+    font-size: var(--text-sm);
     font-weight: 500;
     color: var(--text-secondary);
-    line-height: 1.35;
+    line-height: var(--leading-snug);
   }
 
   .pricing-mobile-option.active {
@@ -2060,63 +2111,44 @@ footer {
     margin: 0 auto;
   }
 
-  .intro-gear {
-    padding-top: 24px;
-  }
-
-  .intro-gear-title {
-    font-size: 18px;
-    margin-bottom: 18px;
-  }
-
-  .intro-gear-items {
-    gap: 28px;
-  }
-
-  .intro-gear-price {
-    font-size: 28px;
-  }
-
-  .intro-gear-total .intro-gear-price {
-    font-size: 34px;
-  }
-
   .tier-title {
-    font-size: 18px;
-    margin-bottom: 32px;
+    font-size: var(--text-2xl);
+    margin-bottom: 28px;
     padding-bottom: 16px;
+    white-space: normal;
   }
 
   .option-title {
-    font-size: 13px;
+    font-size: var(--text-lg);
     margin-bottom: 20px;
   }
 
   .price {
-    font-size: 40px;
+    font-size: clamp(44px, 12vw, 52px);
     margin-bottom: 12px;
   }
 
   .price-period {
-    font-size: 18px;
+    font-size: var(--text-md);
   }
 
   .highlight-badge {
-    font-size: 9px;
-    padding: 6px 14px;
+    font-size: var(--text-xs);
+    padding: 10px 14px;
     margin-bottom: 12px;
   }
 
   .enroll-button,
   .enroll-button {
-    padding: 16px 24px;
-    font-size: 13px;
+    padding: 18px 24px;
+    font-size: var(--text-md);
     margin-top: 24px;
-    border-radius: 10px;
+    border-radius: 12px;
+    min-height: 52px;
   }
 
   .guest-note {
-    font-size: 12px;
+    font-size: var(--text-md);
     margin-top: 40px;
     margin-bottom: 30px;
     padding: 20px 24px;
@@ -2124,7 +2156,7 @@ footer {
   }
 
   .referral-note {
-    font-size: 12px;
+    font-size: var(--text-md);
     margin-top: 0;
     margin-bottom: 30px;
     padding: 20px 24px;
@@ -2138,15 +2170,15 @@ footer {
   }
 
   .footer-content {
-    font-size: 12px;
+    font-size: var(--text-sm);
   }
 
   .copyright {
-    font-size: 11px;
+    font-size: var(--text-sm);
   }
 
   .contact-info {
-    font-size: 13px;
+    font-size: var(--text-md);
   }
 
   .modal-content {
@@ -2176,9 +2208,9 @@ footer {
   }
 
   .modal-title {
-    font-size: 16px;
-    letter-spacing: 1.5px;
-    line-height: 1.2;
+    font-size: var(--text-lg);
+    letter-spacing: 1.2px;
+    line-height: 1.25;
     display: inline;
   }
 
@@ -2231,12 +2263,12 @@ footer {
   }
 
   .modal-overlay-name {
-    font-size: 14px;
+    font-size: var(--text-md);
   }
 
   .modal-overlay-address,
   .modal-overlay-phone {
-    font-size: 10px;
+    font-size: var(--text-xs);
   }
 
   .loader-spinner {
@@ -2247,7 +2279,7 @@ footer {
   }
 
   .loader-text {
-    font-size: 14px;
+    font-size: var(--text-md);
   }
 
   .modal-close {
@@ -2272,35 +2304,35 @@ footer {
   }
 
   .savings-membership-title {
-    font-size: 18px;
+    font-size: var(--text-xl);
   }
 
   .savings-membership-subtitle {
-    font-size: 12px;
+    font-size: var(--text-sm);
   }
 
   .savings-line {
-    font-size: 13px;
+    font-size: var(--text-sm);
     padding: 16px 20px;
     margin-bottom: 16px;
   }
 
   .savings-line strong {
-    font-size: 16px;
+    font-size: var(--text-md);
   }
 
   .savings-total {
-    font-size: 16px;
+    font-size: var(--text-md);
     padding: 20px;
     margin-top: 24px;
   }
 
   .savings-total strong {
-    font-size: 24px;
+    font-size: var(--text-2xl);
   }
 
   .savings-note {
-    font-size: 12px;
+    font-size: var(--text-sm);
     margin-top: 20px;
     margin-bottom: 24px;
   }
@@ -2317,12 +2349,12 @@ footer {
   }
 
   .pricing-tab {
-    padding: 14px 12px;
-    font-size: 16px;
+    padding: 16px 12px;
+    font-size: var(--text-lg);
   }
 
   .tab-desc {
-    font-size: 11px;
+    font-size: var(--text-xs);
   }
 
   .pricing-grid.pif-grid .pricing-tier.pif-unlimited-tier {
@@ -2391,12 +2423,12 @@ footer {
   }
 
   .benefits-list {
-    font-size: 13px;
+    font-size: var(--text-md);
     gap: 12px 20px;
   }
 
   .benefits-list li.no-checkmark {
-    font-size: 12px;
+    font-size: var(--text-sm);
     font-weight: 700;
   }
 
@@ -2411,21 +2443,25 @@ footer {
   }
 
   .pricing-mobile-option-title {
-    font-size: 14px;
+    font-size: var(--text-lg);
   }
 
   .pricing-mobile-option-desc {
-    font-size: 11px;
+    font-size: var(--text-sm);
   }
 
   .option-promo {
-    column-gap: 8px;
-    row-gap: 2px;
-    padding: 8px 10px;
+    gap: 8px;
+    padding: 9px 10px;
+    border-radius: 14px;
+  }
+
+  .option-promo-label {
+    font-size: 9px;
   }
 
   .option-promo-value {
-    font-size: 12px;
+    font-size: var(--text-sm);
   }
 
   .limited-offer-banner {
@@ -2437,27 +2473,27 @@ footer {
   }
 
   .limited-offer-badge {
-    min-width: 78px;
-    padding: 10px 12px;
-    font-size: 15px;
+    min-width: 88px;
+    padding: 12px 14px;
+    font-size: var(--text-lg);
     border-radius: 12px;
   }
 
   .limited-offer-title {
-    font-size: 13px;
+    font-size: var(--text-md);
     letter-spacing: 1px;
   }
 
   .limited-offer-subtitle {
-    font-size: 11px;
+    font-size: var(--text-sm);
   }
 
   .tier-title {
-    font-size: 16px;
+    font-size: var(--text-xl);
   }
 
   .price {
-    font-size: 36px;
+    font-size: clamp(40px, 11vw, 48px);
   }
 
   .pricing-tier {
@@ -2480,4 +2516,33 @@ footer {
     padding: 24px 20px;
   }
 
+}
+
+
+/* Comfort & accessibility helpers */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --text-secondary: #3f383b;
+    --text-tertiary: #5a5255;
+  }
+
+  [data-theme="dark"] {
+    --text-secondary: #e4d8db;
+    --text-tertiary: #c9bdc1;
+  }
 }
