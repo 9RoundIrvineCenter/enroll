@@ -572,6 +572,8 @@
       const guestNote = document.getElementById('guestNote');
       if (!tabs.length || !tiers.length || !pricingGrid) return;
 
+      let hasInitialized = false;
+
       function applyFilter(filter) {
         tabs.forEach(tab => {
           const isActive = tab.getAttribute('data-filter') === filter;
@@ -589,26 +591,25 @@
           guestNote.hidden = filter === 'intro';
         }
 
+        // Instant swap — never show two tiers at once (avoids expand-then-reveal)
+        const activeTier = [];
         tiers.forEach(tier => {
-          const tierType = tier.getAttribute('data-tier');
-          if (tierType === filter) {
-            tier.classList.add('filtered-tier');
-            tier.style.display = 'grid';
-            setTimeout(() => {
-              tier.style.opacity = '1';
-              tier.style.transform = 'translateY(0)';
-            }, 10);
-          } else {
-            tier.classList.remove('filtered-tier');
-            tier.style.opacity = '0';
-            tier.style.transform = 'translateY(20px)';
-            setTimeout(() => {
-              if (tier.getAttribute('data-tier') !== filter) {
-                tier.style.display = 'none';
-              }
-            }, 300);
-          }
+          const isMatch = tier.getAttribute('data-tier') === filter;
+          tier.classList.toggle('filtered-tier', isMatch);
+          tier.classList.remove('tier-swap-in');
+          tier.style.removeProperty('opacity');
+          tier.style.removeProperty('transform');
+          tier.style.display = isMatch ? 'grid' : 'none';
+          if (isMatch) activeTier.push(tier);
         });
+
+        if (hasInitialized) {
+          activeTier.forEach(tier => {
+            void tier.offsetWidth;
+            tier.classList.add('tier-swap-in');
+          });
+        }
+        hasInitialized = true;
       }
 
       tabs.forEach(tab => {
